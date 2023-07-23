@@ -63,10 +63,6 @@ body {
 
     /* Any overflow should be scrollable not hidden */
     overflow: scroll;
-
-    /* Make sure any children element that is larger than the body will be visible */
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 
 hr {
