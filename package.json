@@ -1,0 +1,31 @@
+{
+  "name": "saturday-night",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:css": "unocss 'src/**/*.tsx' --out-file=src/app/uno.css --watch",
+    "dev:next": "next dev",
+    "dev": "run-p dev:*",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@d-exclaimation/next": "^0.3.0",
+    "@types/node": "20.4.4",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "next": "13.4.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@unocss/cli": "^0.53.6",
+    "@unocss/preset-attributify": "^0.53.6",
+    "@unocss/preset-uno": "^0.53.6",
+    "@unocss/preset-web-fonts": "^0.53.6",
+    "npm-run-all": "^4.1.5",
+    "unocss": "^0.53.6"
+  }
+}

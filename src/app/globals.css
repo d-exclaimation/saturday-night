@@ -1,0 +1,21 @@
+@import url("./clean.css");
+@import url("./uno.css");
+
+body {
+  background-color: #f3f4f6;
+}
+
+@keyframes droplet {
+  0% {
+    transform: scale(50%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(100%);
+    opacity: 0
+  }
+}

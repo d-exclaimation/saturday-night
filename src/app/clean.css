@@ -1,0 +1,331 @@
+/*
+
+This CSS file can be included to clean up all built-in browser styles and create a baseline for consistent styling.
+
+To use this file, copy it into your project and include it in your HTML file:
+
+ <link rel="stylesheet" href="/css/clean.css">
+
+ or
+
+ <link rel="stylesheet" th:href="@{/css/clean.css}">
+*/
+
+/* Clean up border styles */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+::before,
+::after {
+    --tw-content: "";
+}
+
+html {
+    /* Use a consistent sensible line-height in all browsers */
+    line-height: 1.5;
+
+    /* Prevent adjustments of font size after orientation changes in iOS */
+    -webkit-text-size-adjust: 100%;
+
+    /* Use a more readable tab size */
+    -moz-tab-size: 4;
+    tab-size: 4;
+
+    /* Use the user's configured `sans` font-family by default */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    font-feature-settings: normal;
+}
+
+body {
+    /* Remove all browsers margin by default  */
+    margin: 0;
+
+    /* Make sure body inherit line height from html class */
+    line-height: inherit;
+
+    /* Center by default */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Make sure at minimum its 100vh */
+    min-height: 100dvh;
+    height: max-content;
+
+    /* Any overflow should be scrollable not hidden */
+    overflow: scroll;
+
+    /* Make sure any children element that is larger than the body will be visible */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+hr {
+    /* Firefox add height here which makes no sense */
+    height: 0;
+
+    /* Firefox seems to have a bug for the inheritance of border color (https://bugzilla.mozilla.org/show_bug.cgi?id=190655) */
+    color: inherit;
+
+    /* Horizontal rules should be visible by default */
+    border-top-width: 1px;
+}
+
+/* Correct text decoration in Chrome, Edge, and Safari */
+abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+}
+
+/* Get rid of the default font size and weight for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* This one is optional, but links should be styled manually not use the browser inherit style  */
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* Edge and Safari doesn't have consistent weight with Chrome and other browsers */
+b,
+strong {
+    font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+    /* Code block should use the user configured mono font */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    /* Correct the odd `em` font sizing */
+    font-size: 1em;
+}
+
+/* Small text should be smaller by exactly 80% */
+small {
+    font-size: 80%;
+}
+
+/* Weird line height caused by sub and sup should be removed (a good example in Github markdown when using <details>) */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+table {
+    /* Chrome and Safari should not indent text by default  (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297) */
+    text-indent: 0;
+
+    /* Chrome and Safari should inherit border color from the parent element  */
+    border-color: inherit;
+    border-collapse: collapse;
+}
+
+/* Make these element headless (no inherit custom style from browser) */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    /* Change the font styles in all browsers */
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+
+    /* Firefox and Safari added margin here which should be removed by default */
+    margin: 0;
+
+    /* Remove default padding in all browsers */
+    padding: 0;
+}
+
+button,
+select {
+    /* Remove the inheritance of text transform in Edge and Firefox */
+    text-transform: none;
+}
+
+/*
+1. .
+2. Remove default button styles.
+*/
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    /* iOS and Safari are doesn't allow style in clickable types for some reason */
+    -webkit-appearance: button;
+
+    /* Get rid of any base styles */
+    background-color: transparent;
+    background-image: none;
+}
+
+:-moz-focusring {
+    /* Use the modern Firefox focus style for all focusable elements */
+    outline: auto;
+}
+
+:-moz-ui-invalid {
+    /* Firefox have an additional :invalid style for some reason (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737) */
+    box-shadow: none;
+}
+
+progress {
+    /* Add the correct vertical alignment in Chrome and Firefox */
+    vertical-align: baseline;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    /* Correct the cursor style of increment and decrement buttons in Safari */
+    height: auto;
+}
+
+[type="search"] {
+    /* Search is a text field */
+    -webkit-appearance: textfield;
+
+    /* Fix outline style in Safari */
+    outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+    /* Remove inner padding for macOS's Chrome and Safari */
+    -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+    /* File upload button should also be style-able on Safari */
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+summary {
+    display: list-item;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+    margin: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    padding: 0;
+}
+
+ol,
+ul,
+menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    /* Limit resize to vertical by default, horizontal resizing usually break other styles */
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity: 1;
+    color: #9ca3af;
+}
+
+button,
+[role="button"] {
+    /* Force all button with the role button to use the pointer cursor */
+    cursor: pointer;
+}
+
+:disabled {
+    /* Make sure disabled buttons don't get the pointer cursor */
+    cursor: default;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    display: block;
+    vertical-align: middle;
+}
+
+/* Preserve intrinsic aspect ratio */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+    display: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+    background-color: #eef3f6;
+}
+
+button:disabled:hover,
+button:disabled:focus,
+button:disabled:active {
+    background-color: #eef3f6;
+}
