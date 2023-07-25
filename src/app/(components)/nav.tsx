@@ -98,7 +98,7 @@ export default rc(() => {
         <img src="/saturday.png" />
       </button>
       <div
-        className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
+        className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-sm -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
         data-show={show}
         onClick={() => setShow(false)}
       />
