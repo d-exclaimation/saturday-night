@@ -62,6 +62,17 @@ export default page(() => {
 
           <span className="relative transition-all">Feeds</span>
         </Link>
+
+        <Link
+          className="px-8 py-2 text-sm animate-enters [animation-delay:0.25s] group relative"
+          href="/connections"
+        >
+          <span className="absolute bg-clip-text bg-gradient-to-r from-fuchsia-400 to-red-400 text-transparent transition-all group-hover:blur group-active:blur">
+            Connections
+          </span>
+
+          <span className="relative transition-all">Connections</span>
+        </Link>
       </section>
 
       <div className="h-[10vh]"></div>

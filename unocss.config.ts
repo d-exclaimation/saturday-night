@@ -16,8 +16,10 @@ export default defineConfig({
   ],
   rules: [
     [
-      "animate-droplet",
-      { animation: "droplet 6s ease-in-out infinite backwards" },
+      /animate-(\w+)/,
+      ([_, p]) => ({
+        animation: `${p} 1s ease-in-out infinite backwards`,
+      }),
     ],
   ],
 });
