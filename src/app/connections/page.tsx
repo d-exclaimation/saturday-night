@@ -74,7 +74,7 @@ export default page(() => {
                   className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
                   key={friend.name}
                 >
-                  <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 border rounded-full overflow-hidden">
+                  <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
                     <img
                       className="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110"
                       src={`https://api.dicebear.com/6.x/shapes/svg?seed=${friend.name}`}
@@ -113,7 +113,7 @@ export default page(() => {
                   className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
                   key={team.name}
                 >
-                  <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 border rounded-full overflow-hidden">
+                  <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
                     <img
                       className="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110"
                       src={`https://api.dicebear.com/6.x/shapes/svg?seed=${team.name}`}
@@ -156,7 +156,7 @@ export default page(() => {
                   key={invite.name}
                 >
                   <div className="flex items-center w-full gap-3">
-                    <div className="w-10 h-10 md:w-12 md:h-12 border rounded-full overflow-hidden">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
                       <img
                         className="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110"
                         src={`https://api.dicebear.com/6.x/shapes/svg?seed=${invite.name}`}
