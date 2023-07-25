@@ -150,7 +150,7 @@ export default page(() => {
             <div className="w-full my-2 flex flex-col items-center justify-start gap-2">
               {invites.map((invite, i) => (
                 <div
-                  className="group w-full flex flex-col md:flex-row items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
+                  className="group w-full flex flex-col md:flex-row items-center py-2 px-3 rounded border border-black/5 gap-3 md:hover:bg-slate-100 md:active:bg-slate-100"
                   key={invite.name}
                 >
                   <div className="flex items-center w-full gap-3">
