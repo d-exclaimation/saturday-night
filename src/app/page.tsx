@@ -16,22 +16,22 @@ export default page(() => {
           </div>
         </div>
 
-        <h2 className="font-semibold animate-enters [animation-delay:0.1s] text-2xl md:text-3xl leading-none mb-4">
+        <h2 className="font-semibold animate-enters ![animation-delay:0.1s] text-2xl md:text-3xl leading-none mb-4">
           Saturday Night
         </h2>
 
-        <h4 className="text-4xl md:text-7xl animate-enters [animation-delay:0.15s] font-extrabold text-center mb-6 md:mb-8">
+        <h4 className="text-4xl md:text-7xl animate-enters ![animation-delay:0.15s] font-extrabold text-center mb-6 md:mb-8">
           A better way to
           <br /> play sports
         </h4>
 
-        <p className="text-sm md:text-base animate-enters [animation-delay:0.2s] text-black/50 max-w-[90vw] text-center flex flex-wrap mb-6">
+        <p className="text-sm md:text-base animate-enters ![animation-delay:0.2s] text-black/50 max-w-[90vw] text-center flex flex-wrap mb-6">
           Early preview of planned features of Saturday. <br />
           Not all features are available yet.
         </p>
 
         <Link
-          className="animate-enters [animation-delay:0.25s] group cursor-pointer mb-4 flex items-center justify-center relative"
+          className="animate-enters ![animation-delay:0.25s] group cursor-pointer mb-4 flex items-center justify-center relative"
           href="https://saturday.team"
         >
           <span
@@ -50,28 +50,6 @@ export default page(() => {
           >
             Live App
           </span>
-        </Link>
-
-        <Link
-          className="px-8 py-2 text-sm animate-enters [animation-delay:0.25s] group relative"
-          href="/feeds"
-        >
-          <span className="absolute bg-clip-text bg-gradient-to-r from-fuchsia-400 to-red-400 text-transparent transition-all group-hover:blur group-active:blur">
-            Feeds
-          </span>
-
-          <span className="relative transition-all">Feeds</span>
-        </Link>
-
-        <Link
-          className="px-8 py-2 text-sm animate-enters [animation-delay:0.25s] group relative"
-          href="/connections"
-        >
-          <span className="absolute bg-clip-text bg-gradient-to-r from-fuchsia-400 to-red-400 text-transparent transition-all group-hover:blur group-active:blur">
-            Connections
-          </span>
-
-          <span className="relative transition-all">Connections</span>
         </Link>
       </section>
 

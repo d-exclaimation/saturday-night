@@ -18,8 +18,9 @@ export default defineConfig({
     [
       /animate-(\w+)/,
       ([_, p]) => ({
-        animation: `${p} 1s ease-in-out infinite backwards`,
+        animation: `${p} 6s ease-in-out infinite backwards`,
       }),
     ],
   ],
+  shortcuts: {},
 });
