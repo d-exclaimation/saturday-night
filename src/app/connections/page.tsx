@@ -119,10 +119,12 @@ export default page(() => {
                       src={`https://api.dicebear.com/6.x/shapes/svg?seed=${team.name}`}
                     />
                   </div>
-                  <span className="max-w-[60%] truncate">{team.name}</span>
-                  <span className="max-w-[10%] text-sm text-black/50 truncate">
-                    {team.sport}
-                  </span>
+                  <div className="flex flex-col w-full">
+                    <span className="max-w-[100%] truncate">{team.name}</span>
+                    <span className="max-w-[100%] text-sm text-black/50 truncate">
+                      {team.sport}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
