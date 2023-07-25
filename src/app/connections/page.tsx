@@ -2,6 +2,7 @@
 
 import { page } from "@d-exclaimation/next";
 import { useState } from "react";
+import FriendPreview from "./friend-preview";
 
 type Friend = {
   name: string;
@@ -69,19 +70,8 @@ export default page(() => {
             </div>
           ) : (
             <div className="w-full my-2 flex flex-col items-center justify-start">
-              {friends.map((friend, i) => (
-                <div
-                  className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
-                  key={friend.name}
-                >
-                  <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
-                    <img
-                      className="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110"
-                      src={`https://api.dicebear.com/6.x/shapes/svg?seed=${friend.name}`}
-                    />
-                  </div>
-                  <span className="max-w-[60%] truncate">{friend.name}</span>
-                </div>
+              {friends.map(({ name }, i) => (
+                <FriendPreview key={name} name={name} />
               ))}
             </div>
           )}
