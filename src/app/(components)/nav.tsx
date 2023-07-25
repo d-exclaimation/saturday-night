@@ -92,7 +92,7 @@ export default rc(() => {
   return (
     <>
       <button
-        className="fixed z-50 bottom-5 right-5 w-12 h-12 rounded-full ring-1 ring-slate-300 shadow-md active:scale-95"
+        className="fixed z-50 bottom-5 right-5 md:right-[unset] md:bottom-[unset] md:top-5 md:left-5 w-12 h-12 rounded-full ring-1 ring-slate-300 shadow-md active:scale-95"
         onClick={() => setShow((prev) => !prev)}
       >
         <img src="/saturday.png" />
@@ -105,15 +105,20 @@ export default rc(() => {
 
       {/* Command Palette */}
       <div
-        className="fixed w-[95%] md:w-72 bottom-5 md:right-5 md:bottom-18 ring-1 ring-slate-300
-        flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full text-sm md:text-base font-light
-        bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md
+        className="fixed w-[95%] md:w-72 bottom-5 md:bottom-[unset] md:left-5 md:top-20 ring-1 ring-slate-300
+        flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full md:translate-y-0 md:-translate-x-full text-sm md:text-base font-light
+        bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md data-[show=true]:translate-x-0
         data-[show=true]:z-60 data-[show=true]:opacity-100 data-[show=true]:translate-y-0 transition-all duration-500"
         data-show={show}
       >
         <div className="flex w-full items-center px-2 pt-2 pb-1">
           <img className="w-6 mr-2" src="/saturday.png" />
-          <h3 className="text-base text-slate-800 font-semibold">Saturday</h3>
+          <a
+            href="/"
+            className="text-base text-slate-800 font-semibold hover:underline active:underline"
+          >
+            Saturday
+          </a>
           <button
             className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm ml-auto hover:bg-red-200 active:bg-red-200"
             onClick={() => setShow(false)}
@@ -132,6 +137,7 @@ export default rc(() => {
               {section.actions.map(({ name, icon, href, shortcut }) => (
                 <a
                   href={href}
+                  key={name}
                   className="focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 px-2 py-1.5 rounded-md hover:bg-slate-100 w-full flex items-center"
                 >
                   <img src={icon} className="w-4 h-4 mr-2" />
