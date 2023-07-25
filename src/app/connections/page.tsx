@@ -212,7 +212,7 @@ export default page(() => {
               {suggestedFriends.slice(0, 6).map((friend, i) => (
                 <div
                   key={friend.name}
-                  className="flex flex-col items-center justify-center w-full h-full rounded py-4 border border-black/5 gap-3"
+                  className="flex flex-col items-center justify-center w-full rounded py-4 border border-black/5 gap-3"
                 >
                   <img
                     className="w-16 h-16 md:w-20 md:h-20 rounded-full"
@@ -258,7 +258,7 @@ export default page(() => {
               {suggestedTeams.slice(0, 6).map((team, i) => (
                 <div
                   key={team.name}
-                  className="flex flex-col items-center justify-center w-full h-full rounded py-4 border border-black/5 gap-3"
+                  className="flex flex-col items-center justify-center w-full rounded py-4 border border-black/5 gap-3"
                 >
                   <img
                     className="w-16 h-16 md:w-20 md:h-20 rounded-full"
