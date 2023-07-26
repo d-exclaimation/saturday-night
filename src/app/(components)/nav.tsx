@@ -92,10 +92,14 @@ export default rc(() => {
   return (
     <>
       <button
-        className="fixed z-50 bottom-5 right-5 md:right-[unset] md:bottom-[unset] md:top-5 md:left-5 w-12 h-12 rounded-full ring-1 ring-slate-300 shadow-md active:scale-95"
+        className="fixed z-50 bottom-5 right-5 md:right-[unset] md:bottom-[unset] md:top-5 md:left-5 w-12 h-12 rounded-full ring-1 ring-slate-300 shadow-md active:scale-95 overflow-hidden"
         onClick={() => setShow((prev) => !prev)}
       >
-        <img src="/saturday.png" />
+        <img
+          className="rotate-0 p-2 bg-white data-[show=true]:rotate-360 transition-all duration-500"
+          data-show={show}
+          src="/bike.svg"
+        />
       </button>
       <div
         className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-sm -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
