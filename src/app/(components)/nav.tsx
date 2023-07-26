@@ -93,7 +93,7 @@ export default rc(() => {
   return (
     <>
       <button
-        className="fixed z-50 bottom-5 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 rounded-lg group
+        className="fixed z-50 bottom-6 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 rounded-lg group
         flex flex-col-reverse md:flex-row items-center gap-1 p-1 bg-white border border-slate-300 active:scale-95 overflow-hidden"
         onClick={() => setShow((prev) => !prev)}
       >
