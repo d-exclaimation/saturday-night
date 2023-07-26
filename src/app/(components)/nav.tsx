@@ -1,7 +1,7 @@
 "use client";
 
 import { rc } from "@d-exclaimation/next";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -69,6 +69,7 @@ const sections = [
 export default rc(() => {
   const [show, setShow] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
@@ -92,14 +93,24 @@ export default rc(() => {
   return (
     <>
       <button
-        className="fixed z-50 bottom-5 right-5 md:right-[unset] md:bottom-[unset] md:top-5 md:left-5 w-12 h-12 rounded-full ring-1 ring-slate-300 shadow-md active:scale-95 overflow-hidden"
+        className="fixed z-50 bottom-5 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 rounded-lg group
+        flex flex-col-reverse md:flex-row items-center gap-1 p-1 bg-white border border-slate-300 active:scale-95 overflow-hidden"
         onClick={() => setShow((prev) => !prev)}
       >
-        <img
-          className="rotate-0 p-2 bg-white data-[show=true]:rotate-360 transition-all duration-500"
-          data-show={show}
-          src="/bike.svg"
-        />
+        <div className="w-8 h-8 flex flex-col items-center justify-around py-1">
+          <span
+            className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:rotate-45 data-[show=true]:translate-x-1 data-[show=true]:-translate-y-[0.25px] origin-top-left"
+            data-show={show}
+          ></span>
+          <span
+            className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:opacity-0 data-[show=true]:translate-x-1/4"
+            data-show={show}
+          ></span>
+          <span
+            className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:-rotate-45 data-[show=true]:translate-x-1 data-[show=true]:translate-y-[0.25px] origin-bottom-left"
+            data-show={show}
+          ></span>
+        </div>
       </button>
       <div
         className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-sm -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
@@ -108,33 +119,21 @@ export default rc(() => {
       />
 
       {/* Command Palette */}
-      <div
-        className="fixed w-[95%] md:w-72 bottom-5 md:bottom-[unset] md:left-5 md:top-20 ring-1 ring-slate-300
-        flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full md:translate-y-0 md:-translate-x-full text-sm md:text-base font-light
-        bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md data-[show=true]:translate-x-0
-        data-[show=true]:z-60 data-[show=true]:opacity-100 data-[show=true]:translate-y-0 transition-all duration-500"
-        data-show={show}
-      >
-        <div className="flex w-full items-center px-2 pt-2 pb-1">
-          <img className="w-6 mr-2" src="/saturday.png" />
-          <a
-            href="/"
-            className="text-base text-slate-800 font-semibold hover:underline active:underline"
-          >
+      <div className="nav-command" data-show={show}>
+        <div className="nav-command-header">
+          <img className="nav-header-icon" src="/saturday.png" />
+          <a href="/" className="nav-header-text">
             Saturday
           </a>
-          <button
-            className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm ml-auto hover:bg-red-200 active:bg-red-200"
-            onClick={() => setShow(false)}
-          >
+          <button className="nav-header-close" onClick={() => setShow(false)}>
             Close
           </button>
         </div>
-        <span className="bg-slate-300 w-full h-[1px] my-2" />
+        <span className="nav-divider" />
 
         {sections.map((section, i) => (
           <>
-            <div key={section.name} className="w-full flex flex-col">
+            <div key={section.name} className="nav-section-text-container">
               <span className="text-sm px-2 py-1 text-slate-400">
                 {section.name}
               </span>

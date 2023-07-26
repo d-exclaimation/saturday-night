@@ -52,6 +52,7 @@ export default page(() => {
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-start md:items-start md:justify-center w-[90vw] min-h-[90dvh] md:min-h-[unset] gap-4 py-4">
+      {/* Current Sticky Tab */}
       <div className="w-full md:w-[30%] md:sticky md:top-4 md:min-h-[90dvh] flex flex-col items-start justify-start bg-white rounded-md shadow p-4">
         {/* Friends */}
         <div className="w-full flex flex-col items-start justify-start bg-white rounded-md">
@@ -66,7 +67,9 @@ export default page(() => {
 
           {!friends.length ? (
             <div className="w-full my-5 flex items-center justify-center">
-              <span className="text-black/50">You have no friends</span>
+              <span className="text-black/50">
+                It's bit empty here, add a friend
+              </span>
             </div>
           ) : (
             <div className="w-full my-2 flex flex-col items-center justify-start">
@@ -93,7 +96,7 @@ export default page(() => {
           {!followingTeam.length ? (
             <div className="w-full my-5 flex items-center justify-center">
               <span className="text-black/50">
-                You are not following any team
+                It's lonely here, follow a team
               </span>
             </div>
           ) : (
