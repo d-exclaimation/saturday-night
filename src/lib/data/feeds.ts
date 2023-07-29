@@ -50,7 +50,7 @@ export const feeds = [
         value: 2.45,
       },
     ],
-    images: ["/touch-grass.jpg"],
+    images: ["/touch-grass.png"],
   },
   {
     id: "feed-zaki-1",
