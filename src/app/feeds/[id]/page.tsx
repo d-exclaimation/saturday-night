@@ -103,3 +103,5 @@ export default page<{ P: { id: string } }>(({ params: { id } }) => {
     </div>
   );
 });
+
+export const runtime = "edge";
