@@ -1,7 +1,8 @@
 "use client";
 
 import { rc } from "@d-exclaimation/next";
-import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const sections = [
@@ -48,10 +49,10 @@ const sections = [
   },
 
   {
-    name: "Settings",
+    name: "Account",
     actions: [
       {
-        name: "Account",
+        name: "Profile",
         href: "https://saturday.team/userProfile",
         icon: "/nav/profile.svg",
         shortcut: "⇧⌘P",
@@ -69,7 +70,6 @@ const sections = [
 export default rc(() => {
   const [show, setShow] = useState(false);
   const router = useRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
@@ -122,9 +122,9 @@ export default rc(() => {
       <div className="nav-command" data-show={show}>
         <div className="nav-command-header">
           <img className="nav-header-icon" src="/saturday.png" />
-          <a href="/" className="nav-header-text">
+          <Link href="/" className="nav-header-text">
             Saturday
-          </a>
+          </Link>
           <button className="nav-header-close" onClick={() => setShow(false)}>
             Close
           </button>
@@ -133,15 +133,19 @@ export default rc(() => {
 
         {sections.map((section, i) => (
           <>
-            <div key={section.name} className="nav-section-text-container">
+            <div
+              key={`${section.name}-${i}`}
+              className="nav-section-text-container"
+            >
               <span className="text-sm px-2 py-1 text-slate-400">
                 {section.name}
               </span>
-              {section.actions.map(({ name, icon, href, shortcut }) => (
-                <a
+              {section.actions.map(({ name, icon, href, shortcut }, i) => (
+                <Link
                   href={href}
-                  key={name}
+                  key={`${section.name}-${name}-${i}`}
                   className="focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 px-2 py-1.5 rounded-md hover:bg-slate-100 w-full flex items-center"
+                  onClick={() => setShow(false)}
                 >
                   <img src={icon} className="w-4 h-4 mr-2" />
                   {name}
@@ -150,11 +154,14 @@ export default rc(() => {
                       {shortcut}
                     </span>
                   )}
-                </a>
+                </Link>
               ))}
             </div>
             {i < sections.length - 1 && (
-              <span className="bg-slate-300 w-full h-[1px] my-2" />
+              <span
+                key={`${section.name}-divider`}
+                className="bg-slate-300 w-full h-[1px] my-2"
+              />
             )}
           </>
         ))}
