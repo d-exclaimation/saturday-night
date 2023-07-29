@@ -8,10 +8,7 @@ type Props = Feed;
 export default rc<Props>(
   ({ id, content, user, time, images, stats, reactions }) => {
     return (
-      <Link
-        className="flex flex-col gap-2 pb-4 max-w-full"
-        href={`/feeds/${id}`}
-      >
+      <div className="flex flex-col gap-2 pb-4 max-w-full">
         <div className="w-full flex items-center gap-2 -translate-x-8">
           <img
             className="aspect-square w-8 h-8 rounded-full ring-6 ring-white"
@@ -21,7 +18,9 @@ export default rc<Props>(
           <span className="font-medium">{user.name}</span>
           <span className="font-light text-sm">{time}</span>
         </div>
-        <p className="">{content}</p>
+        <Link className="w-full" href={`/feeds/${id}`}>
+          <p className="w-full">{content}</p>
+        </Link>
         {stats && (
           <div className="flex flex-col py-1 gap-2">
             {stats.map((stat, i) => (
@@ -56,7 +55,7 @@ export default rc<Props>(
             ))}
           </div>
         )}
-      </Link>
+      </div>
     );
   }
 );
