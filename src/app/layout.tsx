@@ -2,7 +2,9 @@ import { layout } from "@d-exclaimation/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Nav from "./(components)/nav";
+import "./clean.css";
 import "./globals.css";
+import "./uno.css";
 
 const font = Inter({
   subsets: ["latin"],

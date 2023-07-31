@@ -15,6 +15,7 @@ export default defineConfig({
     }),
   ],
   rules: [
+    ["animate-bounce", { animation: "bounce 1s infinite backwards" }],
     [
       /animate-(\w+)/,
       ([_, p]) => ({

@@ -11,6 +11,11 @@ const sections = [
     actions: [
       { name: "Feeds", href: "/feeds", icon: "/nav/activity.svg" },
       {
+        name: "My Activites",
+        href: "https://saturday.team/userActivities",
+        icon: "/nav/activity.svg",
+      },
+      {
         name: "Create Activity",
         href: "https://saturday.team/createActivity",
         icon: "/nav/plus.svg",
@@ -56,6 +61,13 @@ const sections = [
         href: "https://saturday.team/userProfile",
         icon: "/nav/profile.svg",
         shortcut: "⇧⌘P",
+      },
+
+      {
+        name: "Dashboard",
+        href: "/relax",
+        icon: "/nav/ping-pong.svg",
+        shortcut: "⇧⌘R",
       },
       {
         name: "Logout",
@@ -103,26 +115,29 @@ export default rc(() => {
         <div className="w-8 h-8 flex flex-col items-center justify-around py-1">
           <span
             className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:rotate-45 data-[show=true]:translate-x-1 data-[show=true]:-translate-y-[0.25px] origin-top-left"
-            data-show={show}
+            data-show={typeof window !== "undefined" && show}
           ></span>
           <span
             className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:opacity-0 data-[show=true]:translate-x-1/4"
-            data-show={show}
+            data-show={typeof window !== "undefined" && show}
           ></span>
           <span
             className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:-rotate-45 data-[show=true]:translate-x-1 data-[show=true]:translate-y-[0.25px] origin-bottom-left"
-            data-show={show}
+            data-show={typeof window !== "undefined" && show}
           ></span>
         </div>
       </button>
       <div
         className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-sm -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
-        data-show={show}
+        data-show={typeof window !== "undefined" && show}
         onClick={() => setShow(false)}
       />
 
       {/* Command Palette */}
-      <div className="nav-command" data-show={show}>
+      <div
+        className="fixed w-[95%] md:w-72 bottom-6 md:bottom-[unset] md:left-5 md:top-16 ring-1 ring-slate-300 flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full md:translate-y-0 md:-translate-x-full text-sm md:text-base font-light bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md data-[show=true]:translate-x-0 data-[show=true]:z-60 data-[show=true]:opacity-100 data-[show=true]:translate-y-0 transition-all duration-500"
+        data-show={typeof window !== "undefined" && show}
+      >
         <div className="nav-command-header">
           <img className="nav-header-icon" src="/saturday.png" />
           <Link href="/" className="nav-header-text">
