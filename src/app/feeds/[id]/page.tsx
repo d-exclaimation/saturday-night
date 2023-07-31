@@ -19,7 +19,7 @@ export default page<{ P: { id: string } }>(({ params: { id } }) => {
           src={feed.user.image}
           alt={feed.user.name}
         />
-        <span className="font-semibold text-lg md:text-xl">
+        <span className="font-semibold text-base md:text-xl">
           {feed.user.name}
         </span>
         <span className="font-light text-sm">{feed.time}</span>
