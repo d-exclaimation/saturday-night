@@ -130,6 +130,7 @@
 .max-h-\[300px\]{max-height:300px;}
 .max-w-\[100\%\],
 .max-w-full{max-width:100%;}
+.max-w-\[20ch\]{max-width:20ch;}
 .max-w-\[300px\]{max-width:300px;}
 .max-w-\[60\%\]{max-width:60%;}
 .max-w-\[90\%\]{max-width:90%;}
@@ -303,6 +304,7 @@
 .md\:text-3xl{font-size:1.875rem;line-height:2.25rem;}
 .md\:text-7xl{font-size:4.5rem;line-height:1;}
 .md\:text-base{font-size:1rem;line-height:1.5rem;}
+.md\:text-sm{font-size:0.875rem;line-height:1.25rem;}
 .md\:text-xl{font-size:1.25rem;line-height:1.75rem;}
 .md\:backdrop-blur-sm{--un-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--un-backdrop-blur) var(--un-backdrop-brightness) var(--un-backdrop-contrast) var(--un-backdrop-grayscale) var(--un-backdrop-hue-rotate) var(--un-backdrop-invert) var(--un-backdrop-opacity) var(--un-backdrop-saturate) var(--un-backdrop-sepia);backdrop-filter:var(--un-backdrop-blur) var(--un-backdrop-brightness) var(--un-backdrop-contrast) var(--un-backdrop-grayscale) var(--un-backdrop-hue-rotate) var(--un-backdrop-invert) var(--un-backdrop-opacity) var(--un-backdrop-saturate) var(--un-backdrop-sepia);}
 }

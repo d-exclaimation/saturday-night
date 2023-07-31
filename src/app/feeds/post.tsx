@@ -15,8 +15,12 @@ export default rc<Props>(
             src={user.image}
             alt="profile"
           />
-          <span className="font-medium">{user.name}</span>
-          <span className="font-light text-sm">{time}</span>
+          <span className="font-medium max-w-[20ch] truncate text-sm md:text-base">
+            {user.name}
+          </span>
+          <span className="font-light max-w-[20ch] truncate text-xs md:text-sm">
+            {time}
+          </span>
         </div>
         <Link className="max-w-[90%]" href={`/feeds/${id}`}>
           <p className="w-full">{content}</p>
