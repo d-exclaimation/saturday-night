@@ -4,6 +4,10 @@ type User = {
 };
 
 export const user = {
+  saturday: {
+    image: "/saturday.png",
+    name: "Friends at Saturday",
+  },
   zaki: {
     image: "/zaki.png",
     name: "Zaki",

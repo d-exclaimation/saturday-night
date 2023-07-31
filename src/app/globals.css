@@ -1,8 +1,10 @@
 @import url("./clean.css");
 @import url("./uno.css");
 
-body {
-  background-color: #f3f4f6;
+@media (min-width: 768px) {
+  body {
+    background-color: #f3f4f6;
+  }
 }
 
 @keyframes droplet {

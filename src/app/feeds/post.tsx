@@ -18,7 +18,7 @@ export default rc<Props>(
           <span className="font-medium">{user.name}</span>
           <span className="font-light text-sm">{time}</span>
         </div>
-        <Link className="w-full" href={`/feeds/${id}`}>
+        <Link className="max-w-[90%]" href={`/feeds/${id}`}>
           <p className="w-full">{content}</p>
         </Link>
         {stats && (

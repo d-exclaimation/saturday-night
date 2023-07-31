@@ -20,7 +20,7 @@
 
 ## Community & Support
 
-- [GitHub Issues](https://github.com/d-exclaimation/spotlight/issues). Best for: bugs and errors you encounter using [Spotlight](https://spotlight/d-exclaimation.me).
+- [GitHub Issues](https://github.com/d-exclaimation/spotlight/issues). Best for: bugs and errors you encounter using [Saturday](https://saturday.team) or [Saturday Night](https://night.saturday.team).
 - [Email Support](mailto:vincent@d-exclaimation.me). Best for: problems with your account.
 
 ## Status

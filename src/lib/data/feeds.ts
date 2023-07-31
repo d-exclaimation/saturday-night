@@ -21,9 +21,34 @@ export type Feed = {
 
 export const feeds = [
   {
+    id: "feed-saturday-2",
+    user: user.saturday,
+    time: "less than a second ago",
+    content:
+      "Some of us got lost on our way back from the team outing, but we made it back! #team700 #saturday",
+    images: ["/post/lost.webp", "/post/hugh.webp"],
+    reactions: [
+      { emoji: "🏔️", count: 4 },
+      { emoji: "❤️", count: 2 },
+    ],
+  },
+  {
+    id: "feed-saturday-1",
+    user: user.saturday,
+    time: "less than a second ago",
+    content:
+      "We recently had our team outing, it was a blast! #team700 #saturday",
+    images: ["/post/bowling.webp", "/post/ice-cream.webp"],
+    reactions: [
+      { emoji: "🎉", count: 2 },
+      { emoji: "🎳", count: 8 },
+      { emoji: "🍦", count: 8 },
+    ],
+  },
+  {
     id: "feed-mustapha-1",
     user: user.mustapha,
-    time: "less than a second ago",
+    time: "2 mins ago",
     content:
       '"No exceptional person ever lived like an average person" #blessed',
     images: [
@@ -42,7 +67,7 @@ export const feeds = [
   {
     id: "feed-vincent-1",
     user: user.vincent,
-    time: "2 mins ago",
+    time: "8 mins ago",
     content: "Touch some grass, it’s good for you. #nature #grass",
     stats: [
       {
@@ -55,7 +80,7 @@ export const feeds = [
   {
     id: "feed-zaki-1",
     user: user.zaki,
-    time: "8 mins ago",
+    time: "40 mins ago",
     content:
       "Looking forward to Team 400 ‘s internal team discussion. #excited #wanttobethere",
     stats: [
@@ -75,7 +100,7 @@ export const feeds = [
   {
     id: "feed-matthew-1",
     user: user.matthew,
-    time: "32 mins ago",
+    time: "2 hours ago",
     content:
       "Smashed it at bowling, the wall couldn’t keep up. #strike #bowling",
     stats: [
@@ -92,7 +117,7 @@ export const feeds = [
   {
     id: "feed-vincent-2",
     user: user.vincent,
-    time: "2 hours ago",
+    time: "8 hours ago",
     content:
       "Went on a biking trip all around the city, never felt so alive! #madlad",
     stats: [

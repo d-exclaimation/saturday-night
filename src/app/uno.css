@@ -132,6 +132,7 @@
 .max-w-full{max-width:100%;}
 .max-w-\[300px\]{max-width:300px;}
 .max-w-\[60\%\]{max-width:60%;}
+.max-w-\[90\%\]{max-width:90%;}
 .max-w-\[90vw\]{max-width:90vw;}
 .max-w-\[min\(600px\,95\%\)\]{max-width:min(600px,95%);}
 .min-h-\[100dvh\]{min-height:100dvh;}

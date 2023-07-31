@@ -69,6 +69,7 @@ const sections = [
 
 export default rc(() => {
   const [show, setShow] = useState(false);
+  const [active, setActive] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -89,6 +90,8 @@ export default rc(() => {
     document.addEventListener("keydown", handle);
     return () => document.removeEventListener("keydown", handle);
   }, [router]);
+
+  useEffect(() => setActive(true), [setActive]);
 
   return (
     <>
