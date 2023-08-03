@@ -6,6 +6,8 @@ export default defineConfig({
   presets: [presetUno(), presetAttributify()],
   rules: [
     ["animate-bounce", { animation: "bounce 1s infinite backwards" }],
+    ["animate-rise", { animation: "rise 0.5s cubic-bezier(0.5, 0, 1, 1)" }],
+    ["animate-glint", { animation: "glint 0.5s cubic-bezier(0.5, 0, 1, 1)" }],
     [
       /animate-(\w+)/,
       ([_, p]) => ({

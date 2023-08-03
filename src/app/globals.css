@@ -29,3 +29,21 @@
     animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
 }
+
+@keyframes rise {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: attr(data-height);
+  }
+}
+
+@keyframes glint {
+  0% {
+    filter: grayscale(100%)
+  }
+  100% {
+    filter: grayscale(0%)
+  }
+}
