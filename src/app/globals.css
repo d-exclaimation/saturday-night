@@ -1,3 +1,7 @@
+[un-cloak] {
+  display: none;
+}
+
 @media (min-width: 768px) {
   body {
     background-color: #f3f4f6;
@@ -45,5 +49,20 @@
   }
   100% {
     filter: grayscale(0%)
+  }
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 100%;
+  }
+  100% {
+    stroke-dashoffset: 0%;
+  }
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
   }
 }

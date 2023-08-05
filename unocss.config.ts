@@ -8,6 +8,7 @@ export default defineConfig({
     ["animate-bounce", { animation: "bounce 1s infinite backwards" }],
     ["animate-rise", { animation: "rise 0.5s cubic-bezier(0.5, 0, 1, 1)" }],
     ["animate-glint", { animation: "glint 0.5s cubic-bezier(0.5, 0, 1, 1)" }],
+    ["animate-progress", { animation: "progress 1s ease-in-out forwards" }],
     [
       /animate-(\w+)/,
       ([_, p]) => ({

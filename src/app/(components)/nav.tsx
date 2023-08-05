@@ -124,7 +124,8 @@ export default rc(() => {
         </div>
       </button>
       <div
-        className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-sm -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
+        className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-[1px] -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
+        un-cloak
         data-show={typeof window !== "undefined" && show}
         onClick={() => setShow(false)}
       />
@@ -132,6 +133,7 @@ export default rc(() => {
       {/* Command Palette */}
       <div
         className="fixed w-[95%] md:w-72 bottom-6 md:bottom-[unset] md:left-5 md:top-16 ring-1 ring-slate-300 flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full md:translate-y-0 md:-translate-x-full text-sm md:text-base font-light bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md data-[show=true]:translate-x-0 data-[show=true]:z-60 data-[show=true]:opacity-100 data-[show=true]:translate-y-0 transition-all duration-500"
+        un-cloak
         data-show={typeof window !== "undefined" && show}
       >
         <div className="nav-command-header">
