@@ -217,9 +217,9 @@ export default page(() => {
                   className="w-full md:h-40 flex flex-row md:flex-col items-center md:items-start md:justify-between py-4 px-2 md:px-6 gap-3 md:gap-0"
                 >
                   <div
-                    className={`p-3 h-16 w-16 rounded-full border-6 border-opacity-60 w-fit ${colors.border}`}
+                    className={`p-3 h-16 w-16 rounded-full border-6 border-opacity-60 ${colors.border}`}
                   >
-                    <img src={icon} className="w-full h-full" />
+                    <img src={icon} className="w-full h-full aspect-square" />
                   </div>
                   <div className="md:w-full flex-col">
                     <h3 className="text-base md:text-lg leading-none font-bold mt-1">
