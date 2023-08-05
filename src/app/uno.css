@@ -144,7 +144,7 @@
 .border-l-2{border-left-width:2px;}
 .border-black\/20{border-color:rgba(0,0,0,0.2);}
 .border-black\/5{border-color:rgba(0,0,0,0.05);}
-.border-slate-300{--un-border-opacity:1;border-color:rgba(203,213,225,var(--un-border-opacity));}
+.border-slate-500\/50{border-color:rgba(100,116,139,0.5);}
 .rounded{border-radius:0.25rem;}
 .rounded-2xl{border-radius:1rem;}
 .rounded-full{border-radius:9999px;}
@@ -153,7 +153,6 @@
 .bg-\[\#eef3f6\]{--un-bg-opacity:1;background-color:rgba(238,243,246,var(--un-bg-opacity));}
 .bg-black{--un-bg-opacity:1;background-color:rgba(0,0,0,var(--un-bg-opacity));}
 .bg-black\/5{background-color:rgba(0,0,0,0.05);}
-.bg-blue{--un-bg-opacity:1;background-color:rgba(96,165,250,var(--un-bg-opacity));}
 .bg-blue-200{--un-bg-opacity:1;background-color:rgba(191,219,254,var(--un-bg-opacity));}
 .bg-fuchsia-400\/20{background-color:rgba(232,121,249,0.2);}
 .bg-indigo-50{--un-bg-opacity:1;background-color:rgba(238,242,255,var(--un-bg-opacity));}
@@ -162,6 +161,12 @@
 .bg-slate-300{--un-bg-opacity:1;background-color:rgba(203,213,225,var(--un-bg-opacity));}
 .bg-white,
 .data-\[active\=true\]\:bg-white[data-active=true]{--un-bg-opacity:1;background-color:rgba(255,255,255,var(--un-bg-opacity));}
+.data-\[level\=\'0\'\]\:bg-red[data-level='0']{--un-bg-opacity:1;background-color:rgba(248,113,113,var(--un-bg-opacity));}
+.data-\[level\=\'1\'\]\:bg-orange[data-level='1']{--un-bg-opacity:1;background-color:rgba(251,146,60,var(--un-bg-opacity));}
+.data-\[level\=\'2\'\]\:bg-amber[data-level='2']{--un-bg-opacity:1;background-color:rgba(251,191,36,var(--un-bg-opacity));}
+.data-\[level\=\'3\'\]\:bg-lime[data-level='3']{--un-bg-opacity:1;background-color:rgba(163,230,53,var(--un-bg-opacity));}
+.data-\[level\=\'4\'\]\:bg-green[data-level='4']{--un-bg-opacity:1;background-color:rgba(74,222,128,var(--un-bg-opacity));}
+.data-\[level\=\'5\'\]\:bg-teal[data-level='5']{--un-bg-opacity:1;background-color:rgba(45,212,191,var(--un-bg-opacity));}
 .group:hover .group-hover\:bg-red-950,
 .group:active .group-active\:bg-red-950{--un-bg-opacity:1;background-color:rgba(69,10,10,var(--un-bg-opacity));}
 .hover\:bg-black\/10:hover{background-color:rgba(0,0,0,0.1);}
@@ -210,6 +215,12 @@
 .font-semibold{font-weight:600;}
 .leading-none{line-height:1;}
 .data-\[active\=true\]\:text-black[data-active=true]{--un-text-opacity:1;color:rgba(0,0,0,var(--un-text-opacity));}
+.data-\[level\=\'0\'\]\:text-red-600[data-level='0']{--un-text-opacity:1;color:rgba(220,38,38,var(--un-text-opacity));}
+.data-\[level\=\'1\'\]\:text-orange-600[data-level='1']{--un-text-opacity:1;color:rgba(234,88,12,var(--un-text-opacity));}
+.data-\[level\=\'2\'\]\:text-amber-600[data-level='2']{--un-text-opacity:1;color:rgba(217,119,6,var(--un-text-opacity));}
+.data-\[level\=\'3\'\]\:text-lime-600[data-level='3']{--un-text-opacity:1;color:rgba(101,163,13,var(--un-text-opacity));}
+.data-\[level\=\'4\'\]\:text-green-600[data-level='4']{--un-text-opacity:1;color:rgba(22,163,74,var(--un-text-opacity));}
+.data-\[level\=\'5\'\]\:text-teal-600[data-level='5']{--un-text-opacity:1;color:rgba(13,148,136,var(--un-text-opacity));}
 .text-black\/50{color:rgba(0,0,0,0.5);}
 .text-black\/60{color:rgba(0,0,0,0.6);}
 .text-indigo-400{--un-text-opacity:1;color:rgba(129,140,248,var(--un-text-opacity));}
@@ -237,7 +248,6 @@
 .blur-2xl{--un-blur:blur(40px);filter:var(--un-blur) var(--un-brightness) var(--un-contrast) var(--un-drop-shadow) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia);}
 .group:hover .group-hover\:blur-md,
 .group:active .group-active\:blur-md{--un-blur:blur(12px);filter:var(--un-blur) var(--un-brightness) var(--un-contrast) var(--un-drop-shadow) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia);}
-.filter{filter:var(--un-blur) var(--un-brightness) var(--un-contrast) var(--un-drop-shadow) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia);}
 .transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;}
 .duration-500{transition-duration:500ms;}
 .duration-700{transition-duration:700ms;}

@@ -4,24 +4,35 @@ import type { Dashboard } from "@/lib/relax/dash.server";
 import { rc } from "@d-exclaimation/next";
 import { useEffect, useRef, useState } from "react";
 
-const Counter = rc<{ count: number }>(({ count }) => {
+const SPEED = 700;
+
+const Counter = rc<{ count: number; max: number }>(({ count, max }) => {
   const targetRef = useRef(count);
   const intervalRef = useRef<number | NodeJS.Timeout>();
   const currentRef = useRef(0);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
+    const delay = SPEED / targetRef.current;
     intervalRef.current = setInterval(() => {
       if (currentRef.current >= targetRef.current)
         return clearInterval(intervalRef.current);
       setCurrent((prev) => prev + 1);
       currentRef.current++;
-    }, 50);
+    }, delay);
     return () => clearInterval(intervalRef.current);
   }, []);
 
   return (
-    <span className="text-xl font-semibold text-indigo-400">{current}</span>
+    <span
+      className="text-xl font-semibold
+      data-[level='0']:text-red-600 data-[level='1']:text-orange-600
+      data-[level='2']:text-amber-600 data-[level='3']:text-lime-600
+      data-[level='4']:text-green-600 data-[level='5']:text-teal-600"
+      data-level={Math.round((5 * count) / max)}
+    >
+      {current}
+    </span>
   );
 });
 
@@ -37,11 +48,14 @@ const Chart = rc<ChartProps>(({ max, ...member }) => {
       <span className="text-xs font-light text-black/50">{stat}%</span>
       <span
         key={`chart-${member.id}-${new Date().toISOString()}`}
-        className="w-full rounded-md bg-blue h-20 animate-rise"
+        className="w-full rounded-md h-20 animate-rise 
+        data-[level='0']:bg-red data-[level='1']:bg-orange
+        data-[level='2']:bg-amber data-[level='3']:bg-lime 
+        data-[level='4']:bg-green data-[level='5']:bg-teal"
         data-height={`${height.toFixed(2)}rem`}
+        data-level={Math.round(height)}
         style={{
           height: `${height.toFixed(2)}rem`,
-          filter: `hue-rotate(${height * 6}deg)`,
         }}
       />
       <img
@@ -70,6 +84,7 @@ export default rc<Props>(({ id, reviewings, reviewees, avg, max }) => {
               <Counter
                 key={`${kind}-${id}-${new Date().toISOString()}`}
                 count={Math.round(avg[kind])}
+                max={max}
               />
               <span className="font-light text-xs text-black/60 mb-1">%</span>
             </>

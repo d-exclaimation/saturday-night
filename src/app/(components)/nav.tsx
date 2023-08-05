@@ -15,12 +15,13 @@ const sections = [
         name: "My Activites",
         href: "https://saturday.team/userActivities",
         icon: "/nav/activity.svg",
+        shortcut: "live",
       },
       {
         name: "Create Activity",
         href: "https://saturday.team/createActivity",
         icon: "/nav/plus.svg",
-        shortcut: "⇧⌘A",
+        shortcut: "live",
       },
     ],
   },
@@ -28,11 +29,17 @@ const sections = [
   {
     name: "Friends",
     actions: [
-      { name: "Connections", href: "/connections", icon: "/nav/emoji.svg" },
+      {
+        name: "Connections",
+        href: "/connections",
+        icon: "/nav/emoji.svg",
+        shortcut: "live",
+      },
       {
         name: "Search Users",
         href: "https://saturday.team/searchUsers",
         icon: "/nav/search.svg",
+        shortcut: "live",
       },
     ],
   },
@@ -44,12 +51,13 @@ const sections = [
         name: "Search Teams",
         href: "https://saturday.team/searchTeams",
         icon: "/nav/search.svg",
+        shortcut: "live",
       },
       {
         name: "Create Team",
         href: "https://saturday.team/new",
         icon: "/nav/plus.svg",
-        shortcut: "⇧⌘T",
+        shortcut: "live",
       },
     ],
   },
@@ -61,20 +69,19 @@ const sections = [
         name: "Profile",
         href: "https://saturday.team/userProfile",
         icon: "/nav/profile.svg",
-        shortcut: "⇧⌘P",
+        shortcut: "live",
       },
 
       {
         name: "Dashboard",
         href: "/relax",
         icon: "/nav/ping-pong.svg",
-        shortcut: "⇧⌘R",
       },
       {
         name: "Logout",
         href: "https://saturday.team/logout",
         icon: "/nav/logout.svg",
-        shortcut: "⇧⌘Q",
+        shortcut: "live",
       },
     ],
   },
@@ -82,35 +89,23 @@ const sections = [
 
 export default rc(() => {
   const [show, setShow] = useState(false);
-  const [active, setActive] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
       if (e.key === "Escape") setShow(false);
       if (e.metaKey && e.key === "k") setShow((prev) => !prev);
-      if (e.metaKey && e.shiftKey) {
-        sections.map((section) => {
-          section.actions.forEach(({ shortcut, href }) => {
-            if (shortcut?.includes(e.key)) {
-              router.push(href);
-            }
-          });
-        });
-      }
     };
 
     document.addEventListener("keydown", handle);
     return () => document.removeEventListener("keydown", handle);
   }, [router]);
 
-  useEffect(() => setActive(true), [setActive]);
-
   return (
     <>
       <button
-        className="fixed z-50 bottom-6 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 rounded-lg group
-        flex flex-col-reverse md:flex-row items-center gap-1 p-1 bg-white border border-slate-300 active:scale-95 overflow-hidden"
+        className="fixed z-50 bottom-6 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 rounded-lg group shadow-md
+        flex flex-col-reverse md:flex-row items-center gap-1 p-1 bg-white border border-slate-500/50 active:scale-95 overflow-hidden"
         onClick={() => setShow((prev) => !prev)}
       >
         <div className="w-8 h-8 flex flex-col items-center justify-around py-1">
