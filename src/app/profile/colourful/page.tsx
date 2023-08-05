@@ -104,7 +104,7 @@ export default page(() => {
           />
 
           <div className="w-full flex items-end justify-between gap-2">
-            <div className="flex flex-col items-start justify-center">
+            <div className="flex flex-col items-start justify-center gap-0.5">
               <h3 className="text-base md:text-lg leading-none font-bold mt-1">
                 {profile.name}
               </h3>
@@ -114,33 +114,29 @@ export default page(() => {
             </div>
             {profile.connected ? (
               <div className="flex flex-row items-center justify-center gap-1 rounded-full bg-[#6DCFF6] px-1 py-0.5 md:px-2 md:py-0">
-                <img
-                  src="/garmin.svg"
-                  className="p-0.5 w-3 h-3 md:h-4 md:w-4"
-                />
+                <img src="/garmin.svg" className="p-0.5 h-4 w-4" />
                 <span className="text-xs md:text-sm leading-none text-white mr-1">
                   Connected
                 </span>
               </div>
             ) : null}
           </div>
+          <div className="flex gap-2 items-center mr-auto mt-2">
+            <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
+              Settings
+            </button>
+            <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
+              Edit Profile
+            </button>
+          </div>
         </div>
 
-        <div className="w-full bg-slate-200/50 h-[1px] mb-1 mt-3 mx-1" />
+        <div className="w-full bg-slate-200/50 h-[1px] mb-2 mt-3 mx-1" />
 
         {/* About */}
         <div className="w-full flex flex-col px-2 gap-1">
-          <div className="flex items-end justify-between mb-1">
-            <h3 className="font-semibold">About</h3>
-            <div className="flex gap-2 items-center ml-auto mt-2">
-              <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
-                Settings
-              </button>
-              <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
-                Edit Profile
-              </button>
-            </div>
-          </div>
+          <h3 className="font-semibold mt-1">About</h3>
+
           {profile.about.map(({ icon, value }, i) => (
             <div className="flex gap-2 items-center" key={`about-${i}`}>
               <img src={icon} className="w-4 h-4" />

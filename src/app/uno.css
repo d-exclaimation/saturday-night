@@ -53,6 +53,7 @@
 .mr-0\.5{margin-right:0.125rem;}
 .mr-1{margin-right:0.25rem;}
 .mr-2{margin-right:0.5rem;}
+.mr-auto{margin-right:auto;}
 .mt-1{margin-top:0.25rem;}
 .mt-2{margin-top:0.5rem;}
 .mt-3{margin-top:0.75rem;}
@@ -67,7 +68,6 @@
 .h-16{height:4rem;}
 .h-20{height:5rem;}
 .h-24{height:6rem;}
-.h-3{height:0.75rem;}
 .h-4{height:1rem;}
 .h-4\/5{height:80%;}
 .h-40{height:10rem;}
@@ -316,7 +316,6 @@
 .md\:h-12{height:3rem;}
 .md\:h-20{height:5rem;}
 .md\:h-28{height:7rem;}
-.md\:h-4{height:1rem;}
 .md\:h-40{height:10rem;}
 .md\:h-60{height:15rem;}
 .md\:min-h-\[90dvh\]{min-height:90dvh;}
@@ -330,7 +329,6 @@
 .md\:w-28{width:7rem;}
 .md\:w-2xl{width:42rem;}
 .md\:w-3xl{width:48rem;}
-.md\:w-4{width:1rem;}
 .md\:w-6{width:1.5rem;}
 .md\:w-60{width:15rem;}
 .md\:w-7{width:1.75rem;}
