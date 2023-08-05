@@ -1,2 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" id="Line_Color" data-name="Line Color" xmlns="http://www.w3.org/2000/svg"><path id="primary" d="M15.24,6.63a1.09,1.09,0,0,0-2,0l-2.8,5.53v0L9,8.9a1,1,0,0,0-1.8,0L3,18H21Z" style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"></path></svg>
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2492_44)">
+<path d="M794.438 588.939L579.495 171.957C568.578 150.769 546.573 137.608 522.739 138.025C498.905 138.444 477.373 152.352 467.206 173.913L380.203 349.631C374.349 362.016 362.295 370.314 348.647 371.338C334.983 372.386 321.822 366.014 314.156 354.666L270.288 287.872C258.005 269.661 237.063 259.221 215.128 260.357C193.178 261.494 173.445 274.049 163.103 293.438L5.89538 588.321C-2.389 603.855 -1.91556 622.582 7.14694 637.669C16.1923 652.757 32.5032 661.991 50.0954 661.991H749.906C767.381 661.991 783.592 652.888 792.681 637.972C801.773 623.041 802.434 604.472 794.438 588.939Z" fill="#F87171"/>
+</g>
+<defs>
+<clipPath id="clip0_2492_44">
+<rect width="800" height="800" fill="white"/>
+</clipPath>
+</defs>
+</svg>

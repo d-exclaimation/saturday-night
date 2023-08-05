@@ -67,9 +67,8 @@ const sections = [
     actions: [
       {
         name: "Profile",
-        href: "https://saturday.team/userProfile",
+        href: "/profile",
         icon: "/nav/profile.svg",
-        shortcut: "live",
       },
 
       {
