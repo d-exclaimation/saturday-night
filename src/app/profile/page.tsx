@@ -185,7 +185,7 @@ export default page(() => {
                     </g>
                   </svg>
 
-                  <img src={icon} className="absolute w-8 h-8" />
+                  <img src={icon} className="absolute w-6 h-6" />
                 </div>
               </div>
             )
