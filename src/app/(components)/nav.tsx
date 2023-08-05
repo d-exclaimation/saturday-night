@@ -4,6 +4,7 @@ import { rc } from "@d-exclaimation/next";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import AdaptiveLink from "./adaptive-link";
 
 const sections = [
   {
@@ -159,7 +160,7 @@ export default rc(() => {
                 {section.name}
               </span>
               {section.actions.map(({ name, icon, href, shortcut }, i) => (
-                <Link
+                <AdaptiveLink
                   href={href}
                   key={`${section.name}-${name}-${i}`}
                   className="focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 px-2 py-1.5 rounded-md hover:bg-slate-100 w-full flex items-center"
@@ -172,7 +173,7 @@ export default rc(() => {
                       {shortcut}
                     </span>
                   )}
-                </Link>
+                </AdaptiveLink>
               ))}
             </div>
             {i < sections.length - 1 && (
