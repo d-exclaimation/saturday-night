@@ -1,4 +1,5 @@
 import { page } from "@d-exclaimation/next";
+import AdaptiveLink from "../(components)/adaptive-link";
 
 const profile = {
   name: "Vincent",
@@ -21,8 +22,8 @@ const profile = {
       percent: Math.round((4892 * 100) / 6000),
       icon: "/steps.svg",
       colors: {
-        ring: "stroke-blue",
-        text: "text-blue",
+        ring: "stroke-[#2CA9BC]",
+        text: "text-[#2CA9BC]",
       },
     },
     {
@@ -32,8 +33,8 @@ const profile = {
       percent: Math.round((147 * 100) / 500),
       icon: "/floor-climbed.svg",
       colors: {
-        ring: "stroke-red",
-        text: "text-red",
+        ring: "stroke-[#2CA9BC]",
+        text: "text-[#2CA9BC]",
       },
     },
   ],
@@ -44,7 +45,7 @@ const profile = {
       secondary: "kcal",
       icon: "/calories.svg",
       colors: {
-        border: "border-orange",
+        border: "border-[#2CA9BC]",
       },
     },
 
@@ -54,7 +55,7 @@ const profile = {
       secondary: "BPM",
       icon: "/heart-rate.svg",
       colors: {
-        border: "border-rose",
+        border: "border-[#2CA9BC]",
       },
     },
 
@@ -64,7 +65,7 @@ const profile = {
       secondary: "secs",
       icon: "/active-time.svg",
       colors: {
-        border: "border-blue-600",
+        border: "border-[#2CA9BC]",
       },
     },
 
@@ -74,7 +75,7 @@ const profile = {
       secondary: "m",
       icon: "/distance.svg",
       colors: {
-        border: "border-green",
+        border: "border-[#2CA9BC]",
       },
     },
   ],
@@ -90,14 +91,20 @@ export default page(() => {
       {/* Profile */}
       <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2 p-4 bg-white rounded-md md:shadow">
         {/* About */}
-        <div className="w-full mt-6 px-2 flex flex-col items-start justify-start">
+        <div className="relative w-full mt-2 px-2 flex flex-col items-center justify-center">
+          <AdaptiveLink
+            href="/feeds"
+            className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm ml-auto hover:bg-red-200 active:bg-red-200"
+          >
+            Back
+          </AdaptiveLink>
           <img
-            className="relative w-16 h-16 md:h-20 md:w-20 aspect-square rounded-full object-cover"
+            className="relative w-24 h-24 md:h-28 md:w-28 aspect-square rounded-full object-cover"
             src={profile.image}
           />
 
-          <div className="w-full flex items-end justify-between gap-2">
-            <div className="flex flex-col items-start justify-center">
+          <div className="w-full flex flex-col items-center justify-center gap-2">
+            <div className="flex flex-col items-center justify-center">
               <h3 className="text-base md:text-lg leading-none font-bold mt-1">
                 {profile.name}
               </h3>
@@ -119,11 +126,21 @@ export default page(() => {
           </div>
         </div>
 
-        <div className="w-full bg-slate-200/50 h-[1px] mb-2 mt-3 mx-1" />
+        <div className="w-full bg-slate-200/50 h-[1px] mb-1 mt-3 mx-1" />
 
         {/* About */}
         <div className="w-full flex flex-col px-2 gap-1">
-          <h3 className="font-semibold mb-1">About</h3>
+          <div className="flex items-end justify-between mb-1">
+            <h3 className="font-semibold">About</h3>
+            <div className="flex gap-2 items-center ml-auto mt-2">
+              <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
+                Settings
+              </button>
+              <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
+                Edit Profile
+              </button>
+            </div>
+          </div>
           {profile.about.map(({ icon, value }, i) => (
             <div className="flex gap-2 items-center" key={`about-${i}`}>
               <img src={icon} className="w-4 h-4" />
@@ -143,7 +160,7 @@ export default page(() => {
             ({ kind, primary, secondary, percent, colors, icon }, i) => (
               <div
                 key={`summary-${i}`}
-                className="w-full flex items-center justify-between"
+                className="w-full flex flex-row-reverse items-center justify-end gap-3"
               >
                 <div className="flex flex-col gap-0.5">
                   <span className="text-xs md:text-sm leading-none font-semibold text-black/60 capitalize">
@@ -185,7 +202,7 @@ export default page(() => {
                     </g>
                   </svg>
 
-                  <img src={icon} className="absolute w-8 h-8" />
+                  <img src={icon} className="absolute w-6 h-6" />
                 </div>
               </div>
             )
