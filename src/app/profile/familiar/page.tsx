@@ -21,10 +21,6 @@ const profile = {
       secondary: "of 6,000 steps",
       percent: Math.round((4892 * 100) / 6000),
       icon: "/steps.svg",
-      colors: {
-        ring: "stroke-[#2CA9BC]",
-        text: "text-[#2CA9BC]",
-      },
     },
     {
       kind: "Floors climbed",
@@ -32,10 +28,6 @@ const profile = {
       secondary: "of 500 floors",
       percent: Math.round((147 * 100) / 500),
       icon: "/floor-climbed.svg",
-      colors: {
-        ring: "stroke-[#2CA9BC]",
-        text: "text-[#2CA9BC]",
-      },
     },
   ],
   stats: [
@@ -44,9 +36,6 @@ const profile = {
       primary: "2,046",
       secondary: "kcal",
       icon: "/calories.svg",
-      colors: {
-        border: "border-[#2CA9BC]",
-      },
     },
 
     {
@@ -54,9 +43,6 @@ const profile = {
       primary: "112",
       secondary: "BPM",
       icon: "/heart-rate.svg",
-      colors: {
-        border: "border-[#2CA9BC]",
-      },
     },
 
     {
@@ -64,9 +50,6 @@ const profile = {
       primary: "17,567",
       secondary: "secs",
       icon: "/active-time.svg",
-      colors: {
-        border: "border-[#2CA9BC]",
-      },
     },
 
     {
@@ -74,9 +57,6 @@ const profile = {
       primary: "43,123",
       secondary: "m",
       icon: "/distance.svg",
-      colors: {
-        border: "border-[#2CA9BC]",
-      },
     },
   ],
   teams: {
@@ -87,162 +67,124 @@ const profile = {
 
 export default page(() => {
   return (
-    <div className="flex flex-col xl:flex-row items-center justify-start min-w-full md:min-w-[unset] min-h-[100dvh] xl:min-h-[unset] xl:justify-center xl:items-start gap-4 py-4">
+    <div className="v-stack xl:flex-row items-center justify-start min-w-full md:min-w-[unset] min-h-[100dvh] xl:min-h-[unset] xl:justify-center xl:items-start gap-4 py-4">
       {/* Profile */}
-      <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2 p-4 bg-white rounded-md md:shadow">
-        {/* About */}
-        <div className="relative w-full mt-2 px-2 flex flex-col items-center justify-center">
-          <AdaptiveLink
-            href="/profile/colourful"
-            className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm ml-auto hover:bg-red-200 active:bg-red-200"
-          >
-            Back
-          </AdaptiveLink>
-          <img
-            className="relative w-24 h-24 md:h-28 md:w-28 aspect-square rounded-full object-cover"
-            src={profile.image}
-          />
+      <div className="v-stack w-full md:w-xl items-start justify-center md:my-2 p-4 bg-white rounded-md md:shadow">
+        {/* Display */}
+        <section className="v-stack profile-display-section">
+          <div className="h-stack profile-form-actions">
+            <AdaptiveLink
+              href="/profile/colourful"
+              className="action-sm action-danger"
+            >
+              Back
+            </AdaptiveLink>
+          </div>
+          <img className="profile-picture" src={profile.image} />
 
-          <div className="w-full flex flex-col items-center justify-center gap-2">
-            <div className="flex flex-col items-center justify-center gap-0.5">
-              <h3 className="text-base md:text-lg leading-none font-bold mt-1">
-                {profile.name}
-              </h3>
-              <span className="text-xs md:text-sm leading-none text-black/50">
-                {profile.email}
-              </span>
+          <div className="v-stack profile-display-content">
+            <div className="v-stack profile-display-info">
+              <h3 className="profile-title">{profile.name}</h3>
+              <span className="profile-caption">{profile.email}</span>
             </div>
             {profile.connected ? (
-              <div className="flex flex-row items-center justify-center gap-1 rounded-full bg-[#6DCFF6] px-1 py-0.5 md:px-2 md:py-0">
-                <img src="/garmin.svg" className="p-0.5 h-4 w-4" />
-                <span className="text-xs md:text-sm leading-none text-white mr-1">
-                  Connected
-                </span>
+              <div className="h-stack profile-display-badge">
+                <img src="/garmin.svg" className="profile-display-badge-icon" />
+                <span className="profile-display-badge-text">Connected</span>
               </div>
             ) : null}
           </div>
-        </div>
+        </section>
 
-        <div className="w-full bg-slate-200/50 h-[1px] mb-2 mt-3 mx-1" />
+        <div className="profile-divider" />
 
         {/* About */}
-        <div className="w-full flex flex-col px-2 gap-1">
-          <h3 className="font-semibold mb-1">About</h3>
+        <section className="v-stack profile-section">
+          <h3 className="profile-section-title">About</h3>
           {profile.about.map(({ icon, value }, i) => (
-            <div className="flex gap-2 items-center" key={`about-${i}`}>
-              <img src={icon} className="w-4 h-4" />
-              <span className="text-xs md:text-sm leading-none text-black/50">
-                {value}
-              </span>
+            <div className="h-stack profile-about-field" key={`about-${i}`}>
+              <img src={icon} className="profile-about-icon" />
+              <span className="profile-caption">{value}</span>
             </div>
           ))}
-          <div className="flex gap-2 items-center ml-auto mt-2">
-            <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
-              Settings
-            </button>
-            <button className="rounded-md px-2 py-1 bg-[#eef3f6] text-sm  hover:bg-blue-200 active:bg-blue-200">
-              Edit Profile
-            </button>
+          <div className="h-stack profile-form-actions">
+            <button className="action-sm action-active">Settings</button>
+            <button className="action-sm action-active">Edit Profile</button>
           </div>
-        </div>
+        </section>
 
-        <div className="w-full bg-slate-200/50 h-[1px] mb-2 mt-3 mx-1" />
+        <div className="profile-divider" />
 
         {/* Daily Goals */}
-        <div className="w-full flex flex-col px-2 gap-1">
-          <h3 className="font-semibold mb-1">Daily Goals</h3>
+        <section className="v-stack profile-section">
+          <h3 className="profile-section-title">Daily Goals</h3>
           {profile.goals.map(
-            ({ kind, primary, secondary, percent, colors, icon }, i) => (
-              <div
-                key={`summary-${i}`}
-                className="w-full flex flex-row-reverse items-center justify-end gap-3"
-              >
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-xs md:text-sm leading-none font-semibold text-black/60 capitalize">
+            ({ kind, primary, secondary, percent, icon }, i) => (
+              <div key={`goals-${i}`} className="h-flipped-stack profile-goals">
+                <div className="v-stack profile-goals-content">
+                  <span className="profile-caption profile-goals-type">
                     {kind}
                   </span>
-                  <span
-                    className={`text-lg md:text-xl font-bold ${colors.text}`}
-                  >
-                    {primary}
-                  </span>
-                  <span className="text-xs md:text-sm text-black/40">
-                    {secondary}
-                  </span>
+                  <span className="profile-goals-value">{primary}</span>
+                  <span className="profile-goals-target">{secondary}</span>
                 </div>
 
-                <div className="relative flex items-center justify-center w-20 h-20">
-                  <svg className="relative w-20 h-20" viewBox="0 0 37 37">
-                    <g
-                      style={{
-                        transform: "scale(0.75) rotate(-90deg)",
-                        transformOrigin: "50%",
-                      }}
-                    >
+                <div className="profile-goals-ring-container">
+                  <svg className="profile-goals-ring-svg" viewBox="0 0 37 37">
+                    <g className="profile-goals-ring-g">
                       <circle
                         stroke-width="6"
                         r="15.915"
                         cx="50%"
                         cy="50%"
-                        className={`opacity-30 fill-none ${colors.ring}`}
+                        className="profile-goals-ring-circle"
                       />
                       <circle
                         stroke-width="6"
                         r="15.915"
                         cx="50%"
                         cy="50%"
-                        className={`stroke-cap-round fill-none animate-progress ${colors.ring}`}
+                        className="profile-goals-ring-progress"
                         stroke-dasharray={`${percent}, 100`}
                       />
                     </g>
                   </svg>
 
-                  <img src={icon} className="absolute w-6 h-6" />
+                  <img src={icon} className="profile-goals-icon" />
                 </div>
               </div>
             )
           )}
-        </div>
+        </section>
 
-        <div className="w-full bg-slate-200/50 h-[1px] mb-2 mt-3 mx-1" />
+        <div className="profile-divider" />
 
         {/* Daily Summary */}
-        <div className="w-full flex flex-col px-2 gap-1">
-          <h3 className="font-semibold mb-1">Daily Summary</h3>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 place-items-center place-content-center gap-2">
-            {profile.stats.map(
-              ({ icon, primary, secondary, kind, colors }, i) => (
-                <div
-                  key={`stat-${i}`}
-                  className="w-full md:h-40 flex flex-row md:flex-col items-center md:items-start md:justify-between py-4 px-2 md:px-6 gap-3 md:gap-0"
-                >
-                  <div
-                    className={`p-3 h-16 w-16 rounded-full border-6 border-opacity-60 ${colors.border}`}
-                  >
-                    <img src={icon} className="w-full h-full aspect-square" />
-                  </div>
-                  <div className="md:w-full flex-col">
-                    <h3 className="text-base md:text-lg leading-none font-bold mt-1">
-                      {primary}{" "}
-                      <span className="text-xs md:text-sm leading-none text-black/60">
-                        {secondary}
-                      </span>
-                    </h3>
-                    <span className="text-xs md:text-sm leading-none text-black/50">
-                      {kind}
-                    </span>
-                  </div>
+        <div className="v-stack profile-section">
+          <h3 className="profile-section-title">Daily Summary</h3>
+          <div className="profile-summary-grid">
+            {profile.stats.map(({ icon, primary, secondary, kind }, i) => (
+              <div key={`summary-${i}`} className="h-stack profile-summary">
+                <div className="profile-summary-icon-container">
+                  <img src={icon} className="profile-summary-icon" />
                 </div>
-              )
-            )}
+                <div className="v-stack profile-summary-text">
+                  <h3 className="profile-title">
+                    {primary}{" "}
+                    <span className="profile-caption">{secondary}</span>
+                  </h3>
+                  <span className="profile-caption">{kind}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Teams */}
-      <div className="flex flex-col items-center min-w-full md:min-w-[unset] w-max h-max">
-        <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2 p-6 bg-white rounded-md md:shadow">
-          <div className="flex items-center gap-1 w-[100%] mb-3">
+      <div className="v-stack items-center min-w-full md:min-w-[unset] w-max h-max">
+        <div className="w-full md:w-xl v-stack items-start justify-center md:my-2 p-6 bg-white rounded-md md:shadow">
+          <div className="h-stack items-center gap-1 w-[100%] mb-3">
             <img
               className="w-6 px-1 aspect-square md:w-7"
               src="/bike.svg"
@@ -255,7 +197,7 @@ export default page(() => {
           {profile.teams.managed.map((team, i) => (
             <div
               key={`managed-${i}`}
-              className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
+              className="group w-full h-stack items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
             >
               <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
                 <img
@@ -267,8 +209,8 @@ export default page(() => {
             </div>
           ))}
         </div>
-        <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2 p-6 bg-white rounded-md md:shadow">
-          <div className="flex items-center gap-1 w-[100%] mb-3">
+        <div className="w-full md:w-xl v-stack items-start justify-center md:my-2 p-6 bg-white rounded-md md:shadow">
+          <div className="h-stack items-center gap-1 w-[100%] mb-3">
             <img
               className="w-6 px-1 aspect-square md:w-7"
               src="/ping-pong.svg"
@@ -281,7 +223,7 @@ export default page(() => {
           {profile.teams.managed.map((team, i) => (
             <div
               key={`joined-${i}`}
-              className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
+              className="group w-full h-stack items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
             >
               <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
                 <img
