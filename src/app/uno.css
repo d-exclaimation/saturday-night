@@ -108,6 +108,7 @@
 .mt-2{margin-top:0.5rem;}
 .mt-3{margin-top:0.75rem;}
 .block{display:block;}
+.hidden{display:none;}
 .aspect-ratio-auto{aspect-ratio:auto;}
 .aspect-square{aspect-ratio:1/1;}
 .h-\[10vh\]{height:10vh;}
@@ -358,6 +359,7 @@
 .md\:my-2{margin-top:0.5rem;margin-bottom:0.5rem;}
 .md\:mb-8{margin-bottom:2rem;}
 .md\:ml-auto{margin-left:auto;}
+.md\:inline{display:inline;}
 .md\:h-12{height:3rem;}
 .md\:h-20{height:5rem;}
 .md\:h-28{height:7rem;}
@@ -384,15 +386,18 @@
 .md\:flex-col{flex-direction:column;}
 .md\:-translate-x-full{--un-translate-x:-100%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
 .md\:translate-y-0{--un-translate-y:0;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
+.md\:scale-70{--un-scale-x:0.7;--un-scale-y:0.7;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
 .md\:items-start{align-items:flex-start;}
 .md\:justify-center{justify-content:center;}
 .md\:justify-between{justify-content:space-between;}
 .md\:gap-0{gap:0;}
 .md\:gap-3{gap:0.75rem;}
+.md\:border-slate-300{--un-border-opacity:1;border-color:rgba(203,213,225,var(--un-border-opacity));}
 .md\:rounded-md{border-radius:0.375rem;}
 .md\:hover\:bg-slate-100:hover{--un-bg-opacity:1;background-color:rgba(241,245,249,var(--un-bg-opacity));}
 .md\:active\:bg-slate-100:active{--un-bg-opacity:1;background-color:rgba(241,245,249,var(--un-bg-opacity));}
 .md\:p-1{padding:0.25rem;}
+.md\:px-1\.5{padding-left:0.375rem;padding-right:0.375rem;}
 .md\:px-2{padding-left:0.5rem;padding-right:0.5rem;}
 .md\:px-6{padding-left:1.5rem;padding-right:1.5rem;}
 .md\:py-0{padding-top:0;padding-bottom:0;}

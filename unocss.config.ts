@@ -30,6 +30,7 @@ const preset = {
   "action-md": "rounded-md px-3 py-2 bg-[#eef3f6] text-sm",
   "action-active": "hover:bg-blue-200 active:bg-blue-200",
   "action-danger": "hover:bg-red-200 active:bg-red-200",
+  "action-other": "hover:bg-amber-200 active:bg-amber-200",
 };
 
 // Profile page

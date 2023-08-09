@@ -103,11 +103,12 @@ export default rc(() => {
   return (
     <>
       <button
-        className="fixed z-50 bottom-6 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 rounded-lg group shadow-md
-        flex flex-col-reverse md:flex-row items-center gap-1 p-1 bg-white border border-slate-500/50 active:scale-95 overflow-hidden"
+        className="fixed z-50 bottom-6 right-5 md:right-[unset] md:bottom-[unset] md:top-3 md:left-5 
+        rounded-lg group flex flex-col-reverse md:flex-row items-center gap-1 p-1 md:py-0 md:px-1.5 
+        bg-white border border-slate-500/50 active:scale-95 overflow-hidden md:border-slate-300"
         onClick={() => setShow((prev) => !prev)}
       >
-        <div className="w-8 h-8 flex flex-col items-center justify-around py-1">
+        <div className="w-8 h-8 flex flex-col items-center justify-around py-1 md:scale-70">
           <span
             className="w-6 h-[2px] rounded-full bg-black transition-all data-[show=true]:rotate-45 data-[show=true]:translate-x-1 data-[show=true]:-translate-y-[0.25px] origin-top-left"
             data-show={typeof window !== "undefined" && show}
@@ -121,6 +122,9 @@ export default rc(() => {
             data-show={typeof window !== "undefined" && show}
           ></span>
         </div>
+        <span className="hidden md:inline text-sm font-medium mr-2">
+          Explore
+        </span>
       </button>
       <div
         className="fixed inset-0 bg-black/5 transition-all backdrop-blur-md md:backdrop-blur-[1px] -z-40 opacity-0 data-[show=true]:opacity-100 data-[show=true]:z-40"
