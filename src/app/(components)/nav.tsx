@@ -8,9 +8,15 @@ import AdaptiveLink from "./adaptive-link";
 
 const sections = [
   {
+    name: "Social",
+    actions: [
+      { name: "Feeds", href: "/feeds", icon: "/nav/star.svg" },
+      { name: "Create Post", href: "/new-post", icon: "/nav/plus.svg" },
+    ],
+  },
+  {
     name: "Activities",
     actions: [
-      { name: "Feeds", href: "/feeds", icon: "/nav/activity.svg" },
       {
         name: "My Activites",
         href: "https://saturday.team/userActivities",
@@ -123,7 +129,7 @@ export default rc(() => {
           ></span>
         </div>
         <span className="hidden md:inline text-sm font-medium mr-2">
-          Explore
+          Navigate
         </span>
       </button>
       <div
@@ -135,7 +141,7 @@ export default rc(() => {
 
       {/* Command Palette */}
       <div
-        className="fixed w-[95%] md:w-72 bottom-6 md:bottom-[unset] md:left-5 md:top-16 ring-1 ring-slate-300 flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full md:translate-y-0 md:-translate-x-full text-sm md:text-base font-light bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md data-[show=true]:translate-x-0 data-[show=true]:z-60 data-[show=true]:opacity-100 data-[show=true]:translate-y-0 transition-all duration-500"
+        className="fixed w-[95%] md:w-72 bottom-4 md:bottom-[unset] md:left-5 md:top-16 ring-1 ring-slate-300 flex flex-col items-center justify-center opacity-0 -z-60 translate-y-full md:translate-y-0 md:-translate-x-full text-sm md:text-base font-light bg-white px-1 font-medium overflow-hidden rounded-lg md:rounded-md p-1 shadow-md data-[show=true]:translate-x-0 data-[show=true]:z-60 data-[show=true]:opacity-100 data-[show=true]:translate-y-0 transition-all duration-500"
         un-cloak
         data-show={typeof window !== "undefined" && show}
       >

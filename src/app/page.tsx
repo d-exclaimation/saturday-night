@@ -30,7 +30,7 @@ export default page(() => {
           Not all features are available yet.
         </p>
 
-        <Link
+        <a
           className="animate-enters ![animation-delay:0.25s] group cursor-pointer mb-4 flex items-center justify-center relative"
           href="https://saturday.team"
         >
@@ -49,6 +49,24 @@ export default page(() => {
 				  group-hover:text-white group-active:text-white relative"
           >
             Live App
+          </span>
+        </a>
+
+        <Link
+          className="animate-enters ![animation-delay:0.25s] group cursor-pointer mb-4 flex items-center justify-center relative"
+          href="/feeds"
+        >
+          <span className="z-10 peer px-2 py-1 group-hover:underline transition-all text-sm relative">
+            Feeds
+          </span>
+          <span
+            className="absolute text-sm text-transparent bg-clip-text
+            bg-gradient-to-tr from-fuchsia-300 to-red-300
+            group-hover:blur-lg group-active:blur-lg 
+            peer-hover:blur-lg peer-active:blur-lg 
+            transition-all duration-700"
+          >
+            Feeds
           </span>
         </Link>
       </section>
