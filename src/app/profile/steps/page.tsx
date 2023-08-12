@@ -103,7 +103,7 @@ export default page(() => {
         </div>
       </div>
 
-      <div className="relative flex max-w-full h-40 items-end gap-0.5 overflow-x-scroll overflow-y-hidden">
+      <div className="relative flex max-w-full h-40 items-end gap-0.5 overflow-x-scroll overflow-y-visible">
         {data.map((i, index) => (
           <div
             key={`step-${index}`}
@@ -117,7 +117,7 @@ export default page(() => {
               }}
             />
             <div
-              className="absolute peer group cursor-pointer top-0 w-4 aspect-square rounded-full 
+              className="absolute peer group cursor-pointer top-0 w-4 h-4 rounded-full 
               bg-blue hover:scale-120 hover:bg-white hover:p-0.5 transition-all flex items-center 
               justify-center p-1 animate-fade-in"
               style={{
@@ -128,10 +128,10 @@ export default page(() => {
             </div>
 
             <div
-              className="absolute origin-top-right -z-10 top-5 right-5 opacity-0 
+              className="absolute origin-top-right -z-10 top-5 right-5 opacity-0 hidden md:flex
               data-[first-half=true]:right-[unset] data-[first-half=true]:left-5 data-[first-half=true]:origin-top-left
               bg-white rounded-b-md rounded-tl-md shadow-md peer-hover:opacity-100 peer-hover:z-10
-              h-max w-max transition-all flex flex-col items-start p-2 ring ring-slate-200"
+              h-max w-max transition-all flex-col items-start p-2 ring ring-slate-200"
               data-first-half={index < data.length / 2}
             >
               <span className="text-xs font-light mb-1">
