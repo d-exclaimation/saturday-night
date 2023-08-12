@@ -8,7 +8,7 @@ const data = [
 
 export default page(() => {
   return (
-    <div className="w-full md:w-2xl flex flex-col items-start justify-center md:my-2 p-4 bg-white rounded-md shadow">
+    <div className="w-full md:w-2xl flex flex-col items-start justify-center md:my-2 p-4 bg-white rounded-md md:shadow">
       <div className="flex items-center gap-2 w-[100%]">
         <img
           className="w-5 px-1 aspect-square md:w-6"
@@ -24,45 +24,52 @@ export default page(() => {
         </AdaptiveLink>
       </div>
 
-      <div className="flex items-start mt-4 justify-start gap-6 w-full">
-        <div className="relative w-20 h-20 flex items-center justify-center">
-          <svg className="relative w-20 h-20" viewBox="0 0 37 37">
-            <g
-              style={{
-                transform: "scale(0.75) rotate(-90deg)",
-                transformOrigin: "50%",
-              }}
+      <div className="flex flex-col md:flex-row md:items-start mt-4 justify-start gap-6 w-full">
+        <div className="flex flex-row-reverse justify-between md:flex-row md:justify-start gap-6 w-full md:w-[unset]">
+          <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+            <svg
+              className="relative w-16 h-16 md:w-20 md:h-20"
+              viewBox="0 0 37 37"
             >
-              <circle
-                stroke-width="10"
-                r="15.915"
-                cx="50%"
-                cy="50%"
-                className="opacity-30 fill-none stroke-blue"
-              />
-              <circle
-                stroke-width="10"
-                r="15.915"
-                cx="50%"
-                cy="50%"
-                className="stroke-cap-round fill-none animate-progress stroke-blue"
-                stroke-dasharray={`${80}, 100`}
-              />
-            </g>
-          </svg>
-          <span className="absolute text-sm font-bold text-blue">80</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-sm font-light">Today</span>
-          <span className="font-bold text-2xl md:text-3xl">
-            4,892
-            <span className="ml-1.5 text-xs font-extralight text-black/60">
-              steps
+              <g
+                style={{
+                  transform: "scale(0.75) rotate(-90deg)",
+                  transformOrigin: "50%",
+                }}
+              >
+                <circle
+                  strokeWidth="10"
+                  r="15.915"
+                  cx="50%"
+                  cy="50%"
+                  className="opacity-30 fill-none stroke-blue"
+                />
+                <circle
+                  strokeWidth="10"
+                  r="15.915"
+                  cx="50%"
+                  cy="50%"
+                  className="stroke-cap-round fill-none animate-progress stroke-blue"
+                  strokeDasharray={`${80}, 100`}
+                />
+              </g>
+            </svg>
+            <span className="absolute text-xs md:text-sm font-bold text-blue">
+              80
             </span>
-          </span>
-          <span className="text-xs mt-1 text-black/60">
-            <span className="text-emerald">+16.7%</span> from yesterday
-          </span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm font-light">Today</span>
+            <span className="font-bold text-2xl md:text-3xl">
+              4,892
+              <span className="ml-1.5 text-xs font-extralight text-black/60">
+                steps
+              </span>
+            </span>
+            <span className="text-xs mt-1 text-black/60">
+              <span className="text-emerald">+16.7%</span> from yesterday
+            </span>
+          </div>
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-light">Goal</span>
@@ -96,10 +103,10 @@ export default page(() => {
         </div>
       </div>
 
-      <div className="relative flex w-full h-40 items-end gap-0.5">
+      <div className="relative flex max-w-full h-40 items-end gap-0.5 overflow-x-scroll overflow-y-hidden">
         {data.map((i, index) => (
           <div
-            key={`step-${i}`}
+            key={`step-${index}`}
             className="relative flex-1 flex flex-col items-center justify-end"
           >
             <span
