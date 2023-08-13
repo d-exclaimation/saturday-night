@@ -1,6 +1,5 @@
 import AdaptiveLink from "@/app/(components)/adaptive-link";
 import { page } from "@d-exclaimation/next";
-import Link from "next/link";
 
 const profile = {
   name: "Vincent",
@@ -26,7 +25,10 @@ const profile = {
       colors: {
         ring: "stroke-blue",
         text: "text-blue",
+        bg: "bg-blue",
       },
+      weekly: [5267, 2012, 3231, 1000, 400, 5420, 4892],
+      goal: 6000,
       href: "/profile/steps",
     },
     {
@@ -38,7 +40,10 @@ const profile = {
       colors: {
         ring: "stroke-red",
         text: "text-red",
+        bg: "bg-red",
       },
+      weekly: [360, 210, 62, 134, 500, 126, 147],
+      goal: 500,
       href: "/profile/floors",
     },
   ],
@@ -154,58 +159,123 @@ export default page(() => {
         <div className="w-full bg-slate-200/50 h-[1px] mb-2 mt-3 mx-1" />
 
         {/* Daily Goals */}
-        <div className="w-full flex flex-col px-2 gap-1">
+        <div className="w-full flex flex-col px-2 gap-2">
           <h3 className="font-semibold mb-1">Daily Goals</h3>
           {profile.goals.map(
-            ({ kind, primary, secondary, percent, colors, icon, href }, i) => (
-              <Link
+            (
+              { kind, primary, secondary, percent, colors, icon, weekly, goal },
+              i
+            ) => (
+              <div
                 key={`summary-${i}`}
-                href={href}
-                className="w-full flex flex-row-reverse gap-2 items-center justify-end hover:bg-slate-50 rounded-md"
+                className="w-full flex flex-col md:flex-row justify-between"
               >
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-xs md:text-sm leading-none font-semibold text-black/60 capitalize">
-                    {kind}
-                  </span>
-                  <span
-                    className={`text-lg md:text-xl font-bold ${colors.text}`}
-                  >
-                    {primary}
-                  </span>
-                  <span className="text-xs md:text-sm text-black/40">
-                    {secondary}
-                  </span>
-                </div>
-
-                <div className="relative flex items-center justify-center w-20 h-20">
-                  <svg className="relative w-20 h-20" viewBox="0 0 37 37">
-                    <g
-                      style={{
-                        transform: "scale(0.75) rotate(-90deg)",
-                        transformOrigin: "50%",
-                      }}
+                <div className="w-full flex flex-row-reverse gap-2 items-center justify-end">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-xs md:text-sm leading-none font-semibold text-black/60 capitalize">
+                      {kind}
+                    </span>
+                    <span
+                      className={`text-lg md:text-xl font-bold ${colors.text}`}
                     >
-                      <circle
-                        stroke-width="6"
-                        r="15.915"
-                        cx="50%"
-                        cy="50%"
-                        className={`opacity-30 fill-none ${colors.ring}`}
-                      />
-                      <circle
-                        stroke-width="6"
-                        r="15.915"
-                        cx="50%"
-                        cy="50%"
-                        className={`stroke-cap-round fill-none animate-progress ${colors.ring}`}
-                        stroke-dasharray={`${percent}, 100`}
-                      />
-                    </g>
-                  </svg>
+                      {primary}
+                    </span>
+                    <span className="text-xs md:text-sm text-black/40">
+                      {secondary}
+                    </span>
+                  </div>
 
-                  <img src={icon} className="absolute w-7 h-7" />
+                  <div className="relative flex items-center justify-center w-20 h-20">
+                    <svg className="relative w-20 h-20" viewBox="0 0 37 37">
+                      <g
+                        style={{
+                          transform: "scale(0.75) rotate(-90deg)",
+                          transformOrigin: "50%",
+                        }}
+                      >
+                        <circle
+                          stroke-width="6"
+                          r="15.915"
+                          cx="50%"
+                          cy="50%"
+                          className={`opacity-30 fill-none ${colors.ring}`}
+                        />
+                        <circle
+                          stroke-width="6"
+                          r="15.915"
+                          cx="50%"
+                          cy="50%"
+                          className={`stroke-cap-round fill-none animate-progress ${colors.ring}`}
+                          stroke-dasharray={`${percent}, 100`}
+                        />
+                      </g>
+                    </svg>
+
+                    <img src={icon} className="absolute w-7 h-7" />
+                  </div>
                 </div>
-              </Link>
+                <div className="relative flex w-[unset] h-16 items-end justify-end gap-0.5">
+                  {weekly.map((stat, index) => {
+                    const height = Math.min(
+                      4,
+                      Math.max((stat * 4) / goal, 1)
+                    ).toFixed(2);
+                    const date = new Date(
+                      Date.now() - (weekly.length - index) * 1000 * 3600 * 24
+                    ).toLocaleDateString("en-NZ", {
+                      weekday: "short",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    });
+                    return (
+                      <div
+                        key={`step-${index}`}
+                        className="relative w-4 flex flex-col items-center justify-end"
+                      >
+                        <span
+                          className={`absolute bg-opacity-10 w-4 rounded-full ${colors.bg}`}
+                          style={{
+                            height: "4rem",
+                          }}
+                        />
+                        <span
+                          className={`relative w-4 rounded-full animate-rise ${colors.bg}`}
+                          data-height={height}
+                          style={{
+                            height: `${height}rem`,
+                          }}
+                        />
+                        <div
+                          className={`absolute peer group cursor-pointer top-0 w-4 h-4 rounded-full 
+                          hover:scale-110 hover:p-0.5 transition-all flex items-center 
+                          justify-center p-1 animate-fade-in ${colors.bg}`}
+                          style={{
+                            animationDelay: "0.5s",
+                          }}
+                        >
+                          <span className="w-full h-full rounded-full bg-white group-hover:bg-transparent transition-all" />
+                        </div>
+
+                        <div
+                          className="absolute origin-top-right -z-10 top-5 right-5 opacity-0 hidden md:flex
+                          data-[first-half=true]:right-[unset] data-[first-half=true]:left-5 data-[first-half=true]:origin-top-left
+                        bg-white rounded-b-md rounded-tl-md shadow-md peer-hover:opacity-100 peer-hover:z-10
+                          h-max w-max transition-all flex-col items-start p-2 ring ring-slate-200"
+                          data-first-half={index < weekly.length / 2}
+                        >
+                          <span className="text-xs font-light mb-1">
+                            {date}
+                          </span>
+                          <span className="font-bold text-lg md:text-xl">
+                            {stat}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             )
           )}
         </div>
