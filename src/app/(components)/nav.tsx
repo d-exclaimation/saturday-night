@@ -16,12 +16,6 @@ const sections = [
         icon: "/nav/star.svg",
         shortcut: "new",
       },
-      {
-        name: "Feeds",
-        href: "/feeds",
-        icon: "/nav/star.svg",
-        shortcut: "original",
-      },
       { name: "Create Post", href: "/new-post", icon: "/nav/plus.svg" },
     ],
   },
