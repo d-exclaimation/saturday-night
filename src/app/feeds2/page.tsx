@@ -78,7 +78,7 @@ export default page(() => {
                   </div>
                 )}
 
-                <div className="flex items-center gap-2 mt-2">
+                <div className="flex max-w-full flex-wrap items-center gap-2 mt-2">
                   {(reactions ?? []).map((reaction, i) => (
                     <Emoji key={`reaction-${i}`} {...reaction} />
                   ))}
