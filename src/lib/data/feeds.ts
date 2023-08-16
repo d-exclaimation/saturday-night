@@ -8,6 +8,7 @@ export type Feed = {
   };
   time: string;
   content: string;
+  activity?: string;
   stats?: {
     kind: "kcal" | "km" | "mins" | "points";
     value: number;
@@ -69,6 +70,7 @@ export const feeds = [
     user: user.vincent,
     time: "8 mins ago",
     content: "Touch some grass, it’s good for you. #nature #grass",
+    activity: "Touching grass",
     stats: [
       {
         kind: "kcal",
@@ -83,6 +85,7 @@ export const feeds = [
     time: "40 mins ago",
     content:
       "Looking forward to Team 400 ‘s internal team discussion. #excited #wanttobethere",
+    activity: "Team 400 internal team discussion",
     stats: [
       {
         kind: "kcal",
@@ -103,6 +106,7 @@ export const feeds = [
     time: "2 hours ago",
     content:
       "Smashed it at bowling, the wall couldn’t keep up. #strike #bowling",
+    activity: "Bowling with teaching team",
     stats: [
       {
         kind: "kcal",
@@ -120,6 +124,7 @@ export const feeds = [
     time: "8 hours ago",
     content:
       "Went on a biking trip all around the city, never felt so alive! #madlad",
+    activity: "Tour de France",
     stats: [
       {
         kind: "kcal",
