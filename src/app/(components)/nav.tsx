@@ -10,10 +10,15 @@ const sections = [
   {
     name: "Social",
     actions: [
-      { name: "Feeds", href: "/feeds", icon: "/nav/star.svg", shortcut: "new" },
       {
         name: "Feeds",
         href: "/feeds2",
+        icon: "/nav/star.svg",
+        shortcut: "new",
+      },
+      {
+        name: "Feeds",
+        href: "/feeds",
         icon: "/nav/star.svg",
         shortcut: "original",
       },
