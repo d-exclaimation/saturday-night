@@ -44,7 +44,7 @@ export default page(() => {
                         </span>
                       </div>
                     )}
-                    <div className="w-full h-fit py-1 grid grid-cols-2 md:grid-cols-3">
+                    <div className="w-full h-fit py-1 grid grid-cols-2 md:grid-cols-3 gap-1">
                       {stats.map((stat, i) => (
                         <div
                           key={`stat-${i}`}
