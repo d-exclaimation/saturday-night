@@ -8,6 +8,30 @@
   }
 }
 
+@keyframes pop {
+  0% {
+    transform: scale(100%);
+  }
+  33% {
+    transform: scale(200%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+@keyframes gold-plating {
+  0% {
+    transform: rotate(0deg) scale(100%);
+  }
+  50% {
+    transform: rotate(360deg) scale(200%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
 @keyframes droplet {
   0% {
     transform: scale(50%);

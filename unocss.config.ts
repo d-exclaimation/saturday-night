@@ -96,6 +96,8 @@ export default defineConfig({
       { animation: "fade 0.5s cubic-bezier(0.5, 0, 1, 1) backwards" },
     ],
     ["animate-glint", { animation: "glint 0.5s cubic-bezier(0.5, 0, 1, 1)" }],
+    ["animate-pop", { animation: "pop 1s cubic-bezier(0.5, 0, 1, 1)" }],
+    ["animate-gold-plating", { animation: "gold-plating 1.5s ease-in-out" }],
     ["animate-progress", { animation: "progress 1s ease-in-out forwards" }],
     [
       /animate-(\w+)/,

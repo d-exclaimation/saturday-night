@@ -1,36 +1,29 @@
 "use client";
 
 import { rc } from "@d-exclaimation/next";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
 
 type Props = {
   emoji: string;
-  count: number;
+  onClick: () => void;
 };
 
-export default rc<Props>(({ emoji, count: initial }) => {
-  const timeoutRef = useRef<NodeJS.Timeout | number | undefined>();
-  const [count, setCount] = useState(initial);
+export default rc<Props>(({ emoji, onClick }) => {
   const [isExploding, setExploding] = useState(false);
   return (
     <>
       <button
-        className="flex items-center gap-1 py-0.5 px-2 rounded-lg bg-black/5 hover:bg-black/10 transition-all"
+        className="flex items-center rounded-lg transition-all"
         onClick={() => {
           if (isExploding) return;
-          setCount((prev) => prev + 1);
-          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          onClick();
           setExploding(true);
         }}
       >
-        <span
-          data-exploding={isExploding}
-          className="text-sm data-[exploding=true]:animate-pop transition-all"
-        >
+        <span className="text-base px-2 py-1 rounded-md hover:bg-black/5">
           {emoji}
         </span>
-        <span className="font-semibold text-sm">{count}</span>
       </button>
 
       <div

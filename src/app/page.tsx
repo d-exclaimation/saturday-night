@@ -54,7 +54,7 @@ export default page(() => {
 
         <Link
           className="animate-enters ![animation-delay:0.25s] group cursor-pointer mb-4 flex items-center justify-center relative"
-          href="/feeds"
+          href="/feeds2"
         >
           <span className="z-10 peer px-2 py-1 group-hover:underline transition-all text-sm relative">
             Feeds
