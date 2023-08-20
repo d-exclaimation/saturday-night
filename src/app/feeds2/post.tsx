@@ -94,7 +94,7 @@ export default rc<
 
           <div className="relative group">
             <div
-              className="absolute gap-2 py-1.5 -z-50 opacity-0 transition-all duration-500 
+              className="absolute gap-2 py-1.5 -z-50 opacity-0 origin-top-center transition-all duration-500 
               rounded-md shadow group-hover:opacity-100 group-hover:z-50 bg-white/60 backdrop-blur-md 
               group-hover:-translate-y-[calc(100%+0.25rem)] flex items-center px-2"
             >
