@@ -4,7 +4,7 @@ import { rc } from "@d-exclaimation/next";
 
 export default rc<{ isOn: boolean; toggleOn: () => void }>(
   ({ isOn, toggleOn }) => (
-    <div className="fixed top-6 bg-white rounded-md shadow-md p-2 right-6 flex items-center justify-center gap-2">
+    <div className="hidden md:block fixed bottom-6 bg-white rounded-md shadow-md p-2 left-6 flex items-center justify-center gap-2">
       <span className="text-xs font-semibold">Super Emoji</span>
       <button
         data-state={isOn}
