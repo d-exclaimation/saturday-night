@@ -80,7 +80,6 @@ export default rc<
               {...reaction}
               isExploding={explodingEmoji === reaction.emoji}
               onClick={() => {
-                if (explodingEmoji) return;
                 setExplodingEmoji(reaction.emoji);
                 setEmojis((emojis) =>
                   emojis.map((emoji) =>
@@ -96,14 +95,13 @@ export default rc<
           <div className="relative group">
             <div
               className="absolute gap-2 py-1.5 -z-50 opacity-0 transition-all duration-500 
-              rounded-md shadow group-hover:opacity-100 group-hover:z-50 bg-white 
+              rounded-md shadow group-hover:opacity-100 group-hover:z-50 bg-white/60 backdrop-blur-md 
               group-hover:-translate-y-[calc(100%+0.25rem)] flex items-center px-2"
             >
               {["👍", "🔥", "🤡", "💪", "👏", "🍆"].map((emoji) => (
                 <button
                   className="flex items-center rounded-lg transition-all"
                   onClick={() => {
-                    if (explodingEmoji) return;
                     setExplodingEmoji(emoji);
                     setEmojis((reactions) => {
                       if (
@@ -153,7 +151,7 @@ export default rc<
             className="absolute z-200 transition-all data-[show=true]:animate-gold-plating"
           >
             <div className="relative flex items-center justify-center">
-              <span className="absolute rounded-full w-32 h-32 bg-cyan blur-2xl"></span>
+              <span className="absolute rounded-full w-40 h-40 bg-gradient-to-r from-sky to-indigo blur-2xl"></span>
               <span className="relative text-9xl">{explodingEmoji}</span>
             </div>
           </div>
