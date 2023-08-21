@@ -38,52 +38,45 @@ export default rc<
           </span>
         </div>
 
-        <Link
-          href={`/feeds2/${id}`}
-          className="max-w-full text-sm md:text-base"
-        >
-          {content}
-        </Link>
+        <Link href={`/feeds2/${id}`} className="w-full flex flex-col group">
+          <p className="max-w-full text-sm md:text-base group-hover:underline underline-black/30">
+            {content}
+          </p>
 
-        {stats && (
-          <Link
-            href={`/feeds2/${id}`}
-            className="w-full max-w-lg flex flex-col p-1 px-2 mb-2 mt-3 mx-1 bg-slate-200/20 rounded-md ring-1 ring-slate-300/40 h-fit"
-          >
-            {activity && (
-              <div className="w-full flex py-1">
-                <span className="text-black/40 text-sm">{activity}</span>
-              </div>
-            )}
-            <div className="w-full h-fit py-1 grid grid-cols-2 md:grid-cols-3 gap-1">
-              {stats.map((stat, i) => (
-                <div key={`stat-${i}`} className="flex items-center gap-1">
-                  <img
-                    className="aspect-square w-6 h-6 mr-1"
-                    src={`/${stat.kind}.svg`}
-                    alt={stat.kind}
-                  />
-                  <span className="font-bold text-lg">{stat.value}</span>
-                  <span className="font-light text-sm">{stat.kind}</span>
+          {stats && (
+            <div className="w-full max-w-lg flex flex-col p-1 px-2 mb-2 mt-3 mx-1 bg-slate-200/20 rounded-md ring-1 ring-slate-300/40 h-fit">
+              {activity && (
+                <div className="w-full flex py-1">
+                  <span className="text-black/40 text-sm">{activity}</span>
                 </div>
-              ))}
+              )}
+              <div className="w-full h-fit py-1 grid grid-cols-2 md:grid-cols-3 gap-1">
+                {stats.map((stat, i) => (
+                  <div key={`stat-${i}`} className="flex items-center gap-1">
+                    <img
+                      className="aspect-square w-6 h-6 mr-1"
+                      src={`/${stat.kind}.svg`}
+                      alt={stat.kind}
+                    />
+                    <span className="font-bold text-lg">{stat.value}</span>
+                    <span className="font-light text-sm">{stat.kind}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </Link>
-        )}
+          )}
 
-        {images && images.length && (
-          <Link
-            href={`/feeds2/${id}`}
-            className="flex gap-1 w-full pt-6 pb-4 md:py-6 px-3"
-          >
-            <img
-              src={images[0]}
-              className="transition-all duration-700 max-w-[250px] max-h-[250px] md:max-w-[38rem] md:max-h-[38rem]
+          {images && images.length && (
+            <div className="flex gap-1 w-full pt-6 pb-4 md:py-6 px-3">
+              <img
+                src={images[0]}
+                className="transition-all duration-700 max-w-[250px] max-h-[250px] md:max-w-[38rem] md:max-h-[38rem]
               object-cover rounded-md shadow-2xl rotate-1 data-[odd=true]:-rotate-1"
-              data-odd={i % 2 === 0}
-            />
-          </Link>
-        )}
+                data-odd={i % 2 === 0}
+              />
+            </div>
+          )}
+        </Link>
 
         <div className="flex max-w-full flex-wrap items-center gap-2 mt-2">
           {emojis.map((reaction, i) => (

@@ -426,6 +426,7 @@
 .group:hover .group-hover\:text-white,
 .group:active .group-active\:text-white{--un-text-opacity:1;color:rgba(255,255,255,var(--un-text-opacity));}
 .group:hover .group-hover\:underline{text-decoration-line:underline;}
+.underline-black\/30{-webkit-text-decoration-color:rgba(0,0,0,0.3);text-decoration-color:rgba(0,0,0,0.3);}
 .data-\[show\=true\]\:opacity-0[data-show=true],
 .opacity-0{opacity:0;}
 .data-\[show\=true\]\:opacity-100[data-show=true],
