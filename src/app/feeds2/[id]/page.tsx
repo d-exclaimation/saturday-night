@@ -28,8 +28,8 @@ export default page<{ P: { id: string } }>(({ params: { id } }) => {
         <div className="w-full px-3 py-1 mt-2 flex gap-3">
           <img
             className="aspect-square w-8 h-8 rounded-full ring-6 ring-white"
-            src="/vincent.png"
-            alt="user-1"
+            src={user.saturday.image}
+            alt={user.saturday.name}
           />
           <textarea
             className="w-[calc(100%-3.25rem)] h-19 text-sm p-2 bg-slate-50 rounded-md resize-none outline-none"
