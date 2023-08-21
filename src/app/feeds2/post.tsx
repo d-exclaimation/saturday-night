@@ -2,15 +2,16 @@
 
 import { type feeds } from "@/lib/data/feeds";
 import { rc } from "@d-exclaimation/next";
+import Link from "next/link";
 import { useState } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
-import AdaptiveLink from "../(components)/adaptive-link";
 import Emoji from "./emoji";
 
 export default rc<
   (typeof feeds)[number] & { i: number; shouldSuperAnimate: boolean }
 >(
   ({
+    id,
     user,
     time,
     content,
@@ -37,10 +38,18 @@ export default rc<
           </span>
         </div>
 
-        <p className="max-w-full text-sm md:text-base">{content}</p>
+        <Link
+          href={`/feeds2/${id}`}
+          className="max-w-full text-sm md:text-base"
+        >
+          {content}
+        </Link>
 
         {stats && (
-          <div className="w-full max-w-lg flex flex-col p-1 px-2 mb-2 mt-3 mx-1 bg-slate-200/20 rounded-md ring-1 ring-slate-300/40 h-fit">
+          <Link
+            href={`/feeds2/${id}`}
+            className="w-full max-w-lg flex flex-col p-1 px-2 mb-2 mt-3 mx-1 bg-slate-200/20 rounded-md ring-1 ring-slate-300/40 h-fit"
+          >
             {activity && (
               <div className="w-full flex py-1">
                 <span className="text-black/40 text-sm">{activity}</span>
@@ -59,18 +68,21 @@ export default rc<
                 </div>
               ))}
             </div>
-          </div>
+          </Link>
         )}
 
         {images && images.length && (
-          <div className="flex gap-1 w-full pt-6 pb-4 md:py-6 px-3">
+          <Link
+            href={`/feeds2/${id}`}
+            className="flex gap-1 w-full pt-6 pb-4 md:py-6 px-3"
+          >
             <img
               src={images[0]}
               className="transition-all duration-700 max-w-[250px] max-h-[250px] md:max-w-[38rem] md:max-h-[38rem]
               object-cover rounded-md shadow-2xl rotate-1 data-[odd=true]:-rotate-1"
               data-odd={i % 2 === 0}
             />
-          </div>
+          </Link>
         )}
 
         <div className="flex max-w-full flex-wrap items-center gap-2 mt-2">
@@ -92,9 +104,9 @@ export default rc<
             />
           ))}
 
-          <div className="relative group">
+          <div className="relative group ml-auto">
             <div
-              className="absolute gap-2 py-1.5 -z-50 opacity-0 origin-top-center transition-all duration-500 
+              className="absolute gap-2 py-1.5 -z-50 opacity-0 right-0 origin-top-right transition-all duration-500 
               rounded-md shadow group-hover:opacity-100 group-hover:z-50 bg-white/60 backdrop-blur-md 
               group-hover:-translate-y-[calc(100%+0.25rem)] flex items-center px-2"
             >
@@ -127,14 +139,6 @@ export default rc<
               <img src="/add-reaction.svg" className="w-5 h-5 opacity-60" />
             </button>
           </div>
-
-          <AdaptiveLink
-            href="/for-you"
-            className="ml-auto flex items-center gap-1 text-black/50 hover:text-black/75 active:text-black/75"
-          >
-            <span className="mr-1">💬</span>
-            <span className="text-sm">5 comments</span>
-          </AdaptiveLink>
         </div>
         <div
           data-show={!!explodingEmoji && shouldSuperAnimate}
