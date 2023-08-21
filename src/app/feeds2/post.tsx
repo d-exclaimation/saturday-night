@@ -19,6 +19,8 @@ export default rc<
     activity,
     images,
     reactions,
+    locations,
+    tags,
     shouldSuperAnimate,
     i,
   }) => {
@@ -26,20 +28,23 @@ export default rc<
     const [explodingEmoji, setExplodingEmoji] = useState<string | undefined>();
     return (
       <div className="flex flex-col w-full px-2 md:px-6 py-1">
-        <div className="flex flex-row min-w-full items-center -translate-x-9 md:-translate-x-13">
+        <Link
+          href="#"
+          className="flex flex-row min-w-full items-center -translate-x-9 md:-translate-x-13 group"
+        >
           <div className="p-2 bg-white rounded-full shrink-0">
             <img src={user.image} className="w-8 h-8 rounded-full" />
           </div>
-          <span className="min-w-fit text-sm md:text-base font-semibold">
+          <span className="min-w-fit text-sm md:text-base font-semibold hover:underline">
             {user.name}
           </span>
           <span className="ml-1 md:ml-2 min-w-fit text-xs text-black/50">
             {time}
           </span>
-        </div>
+        </Link>
 
         <Link href={`/feeds2/${id}`} className="w-full flex flex-col group">
-          <p className="max-w-full text-sm md:text-base group-hover:underline underline-black/30">
+          <p className="max-w-full text-sm md:text-base group-hover:underline underline-black/20">
             {content}
           </p>
 
@@ -77,6 +82,44 @@ export default rc<
             </div>
           )}
         </Link>
+
+        {tags && tags.length && (
+          <div className="relative group flex w-full py-2 items-center gap-1">
+            <img className="relative w-4 h-4" src="/tag.svg" alt="tags" />
+            <span className="relative font-light text-xs">
+              {tags[0].name} and {tags.length - 1} other{tags.length > 2 && "s"}
+            </span>
+
+            <div className="transition-all group-hover:opacity-100 opacity-0 absolute z-50 bottom-full left-0 origin-top-left shadow mb-1 px-3.5 py-2 rounded-md flex flex-col gap-2 bg-white/80 backdrop-blur-lg">
+              <div>
+                <span className="font-semibold text-sm flex-shrink-0 text-nowrap">
+                  Tagged user
+                </span>
+              </div>
+              {tags.map((tag, i) => (
+                <Link
+                  href="#"
+                  key={`tag-${i}`}
+                  className="flex items-center pr-3 group"
+                >
+                  <img className="w-4 h-4" src={tag.image} alt={tag.name} />
+                  <span className="text-sm hover:underline ml-1">
+                    {tag.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {locations && (
+          <div className="flex items-center gap-1 pb-2">
+            <img className="w-4 h-4" src="/gps.svg" alt="location" />
+            <span className="font-light text-xs truncate max-w-[40ch]">
+              {locations}
+            </span>
+          </div>
+        )}
 
         <div className="flex max-w-full flex-wrap items-center gap-2 mt-2">
           {emojis.map((reaction, i) => (

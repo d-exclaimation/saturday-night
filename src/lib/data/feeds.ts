@@ -18,6 +18,11 @@ export type Feed = {
     emoji: string;
     count: number;
   }[];
+  locations?: string;
+  tags?: {
+    name: string;
+    image: string;
+  }[];
 };
 
 export const feeds = [
@@ -29,9 +34,11 @@ export const feeds = [
       "Some of us got lost on our way back from the team outing, but we made it back! #team700 #saturday",
     images: ["/post/lost.webp", "/post/hugh.webp"],
     reactions: [
-      { emoji: "🏔️", count: 4 },
+      { emoji: "🔥", count: 4 },
       { emoji: "❤️", count: 2 },
     ],
+    locations: "Cashmere, Christchurch, New Zealand",
+    tags: [user.vincent, user.zaki],
   },
   {
     id: "feed-saturday-1",
@@ -41,10 +48,12 @@ export const feeds = [
       "We recently had our team outing, it was a blast! #team700 #saturday",
     images: ["/post/bowling.webp", "/post/ice-cream.webp"],
     reactions: [
-      { emoji: "🎉", count: 2 },
-      { emoji: "🎳", count: 8 },
-      { emoji: "🍦", count: 8 },
+      { emoji: "🔥", count: 2 },
+      { emoji: "❤️", count: 8 },
+      { emoji: "👍", count: 8 },
     ],
+    locations: "Waltham, Christchurch, New Zealand",
+    tags: [user.vincent, user.zaki],
   },
   {
     id: "feed-mustapha-1",
@@ -60,7 +69,7 @@ export const feeds = [
     ],
     reactions: [
       {
-        emoji: "🥵",
+        emoji: "🔥",
         count: 10,
       },
     ],
@@ -78,6 +87,7 @@ export const feeds = [
       },
     ],
     images: ["/touch-grass.png"],
+    locations: "Ilam, Christchurch, New Zealand",
   },
   {
     id: "feed-zaki-1",
@@ -95,7 +105,7 @@ export const feeds = [
     images: ["/excited.png"],
     reactions: [
       {
-        emoji: "💀",
+        emoji: "🤡",
         count: 1,
       },
     ],
@@ -146,6 +156,7 @@ export const feeds = [
         count: 5,
       },
     ],
+    locations: "Bastille, Paris, France",
   },
   {
     id: "feed-mustapha-2",
@@ -156,15 +167,15 @@ export const feeds = [
     images: ["/humbled.png"],
     reactions: [
       {
-        emoji: "🥵",
+        emoji: "💪",
         count: 1,
       },
       {
-        emoji: "🥶",
+        emoji: "👍",
         count: 1,
       },
       {
-        emoji: "🤯",
+        emoji: "🔥",
         count: 1,
       },
     ],

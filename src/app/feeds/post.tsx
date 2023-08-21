@@ -6,7 +6,7 @@ import Emoji from "./emoji";
 type Props = Feed;
 
 export default rc<Props>(
-  ({ id, content, user, time, images, stats, reactions }) => {
+  ({ id, content, user, time, images, stats, reactions, locations }) => {
     return (
       <div className="flex flex-col gap-2 pb-4 max-w-full">
         <div className="w-full flex items-center gap-2 -translate-x-8">
@@ -15,12 +15,21 @@ export default rc<Props>(
             src={user.image}
             alt="profile"
           />
-          <span className="font-medium max-w-[20ch] truncate text-sm md:text-base">
-            {user.name}
-          </span>
-          <span className="font-light max-w-[20ch] truncate text-xs md:text-sm">
-            {time}
-          </span>
+          <div className="flex flex-col gap-0.5">
+            <div className="flex gap-2 items-center">
+              <span className="font-medium max-w-[20ch] truncate text-sm md:text-base">
+                {user.name}
+              </span>
+              <span className="font-light max-w-[20ch] truncate text-xs md:text-sm">
+                {time}
+              </span>
+            </div>
+            {locations && (
+              <span className="font-light text-xs truncate max-w-[40ch]">
+                {locations}
+              </span>
+            )}
+          </div>
         </div>
         <Link className="max-w-[90%]" href={`/feeds/${id}`}>
           <p className="w-full">{content}</p>

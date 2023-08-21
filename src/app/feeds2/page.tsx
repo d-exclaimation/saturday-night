@@ -2,12 +2,25 @@
 
 import { feeds } from "@/lib/data/feeds";
 import { page } from "@d-exclaimation/next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Post from "./post";
-import SwitchSuperEmoji from "./switch-super-emoji";
 
 export default page(() => {
-  const [isOn, setOn] = useState(true);
+  const [isOn, setOn] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey && e.shiftKey && e.key === "e") {
+        setOn((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+
   return (
     <div className="w-full min-h-[100dvh]  flex items-center justify-center">
       <div className="w-full md:w-3xl min-h-full flex flex-col items-start justify-start md:my-2 md:my-8 py-2 bg-white rounded-lg shadow-md">
@@ -21,7 +34,6 @@ export default page(() => {
           ))}
         </div>
       </div>
-      <SwitchSuperEmoji isOn={isOn} toggleOn={() => setOn((prev) => !prev)} />
     </div>
   );
 });
