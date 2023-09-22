@@ -1,0 +1,202 @@
+"use client";
+
+import Emoji from "@/app/feeds2/emoji";
+import { type feeds } from "@/lib/data/feeds";
+import { rc } from "@d-exclaimation/next";
+import Link from "next/link";
+import { useState } from "react";
+import ConfettiExplosion from "react-confetti-explosion";
+
+export default rc<
+  (typeof feeds)[number] & { i: number; shouldSuperAnimate: boolean }
+>(
+  ({
+    id,
+    user,
+    time,
+    content,
+    stats,
+    activity,
+    images,
+    reactions,
+    locations,
+    tags,
+    shouldSuperAnimate,
+    i,
+  }) => {
+    const [emojis, setEmojis] = useState(reactions ?? []);
+    const [explodingEmoji, setExplodingEmoji] = useState<string | undefined>();
+    return (
+      <div className="flex flex-col w-full px-2 md:px-6 py-1">
+        <Link
+          href="#"
+          className="flex flex-row min-w-full items-center -translate-x-9 md:-translate-x-13 group"
+        >
+          <div className="p-2 bg-white rounded-full shrink-0">
+            <img src={user.image} className="w-8 h-8 rounded-full" />
+          </div>
+          <span className="min-w-fit text-sm md:text-base font-semibold hover:underline">
+            {user.name}
+          </span>
+          <span className="ml-1 md:ml-2 min-w-fit text-xs text-black/50">
+            {time}
+          </span>
+        </Link>
+
+        <Link href={`/feeds2/${id}`} className="w-full flex flex-col group">
+          <p className="max-w-full text-sm md:text-base group-hover:underline underline-black/20">
+            {content}
+          </p>
+
+          {stats && (
+            <div className="w-full max-w-lg flex flex-col p-1 px-2 mb-2 mt-3 mx-1 bg-slate-200/20 rounded-md ring-1 ring-slate-300/40 h-fit">
+              {activity && (
+                <div className="w-full flex py-1">
+                  <span className="text-black/40 text-sm">{activity}</span>
+                </div>
+              )}
+              <div className="w-full h-fit py-1 grid grid-cols-2 md:grid-cols-3 gap-1">
+                {stats.map((stat, i) => (
+                  <div key={`stat-${i}`} className="flex items-center gap-1">
+                    <img
+                      className="aspect-square w-6 h-6 mr-1"
+                      src={`/${stat.kind}.svg`}
+                      alt={stat.kind}
+                    />
+                    <span className="font-bold text-lg">{stat.value}</span>
+                    <span className="font-light text-sm">{stat.kind}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {images && images.length && (
+            <div className="flex gap-1 w-full pt-6 pb-4 md:py-6 px-3">
+              <img
+                src={images[0]}
+                className="transition-all duration-700 max-w-[100px] max-h-[100px] md:max-w-[16rem] md:max-h-[16rem]
+                object-cover rounded-md shadow-2xl rotate-1 data-[odd=true]:-rotate-1"
+                data-odd={i % 2 === 0}
+              />
+            </div>
+          )}
+        </Link>
+
+        {tags && tags.length && (
+          <div className="relative group flex w-full py-2 items-center gap-1">
+            <img className="relative w-4 h-4" src="/tag.svg" alt="tags" />
+            <span className="relative font-light text-xs">
+              {tags[0].name} and {tags.length - 1} other{tags.length > 2 && "s"}
+            </span>
+
+            <div className="transition-all group-hover:opacity-100 opacity-0 absolute z-50 bottom-full left-0 origin-top-left shadow mb-1 px-3.5 py-2 rounded-md flex flex-col gap-2 bg-white/80 backdrop-blur-lg">
+              <div>
+                <span className="font-semibold text-sm flex-shrink-0 text-nowrap">
+                  Tagged user
+                </span>
+              </div>
+              {tags.map((tag, i) => (
+                <Link
+                  href="#"
+                  key={`tag-${i}`}
+                  className="flex items-center pr-3 group"
+                >
+                  <img className="w-4 h-4" src={tag.image} alt={tag.name} />
+                  <span className="text-sm hover:underline ml-1">
+                    {tag.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {locations && (
+          <div className="flex items-center gap-1 pb-2">
+            <img className="w-4 h-4" src="/gps.svg" alt="location" />
+            <span className="font-light text-xs truncate max-w-[40ch]">
+              {locations}
+            </span>
+          </div>
+        )}
+
+        <div className="flex max-w-full flex-wrap items-center gap-2 mt-2">
+          {emojis.map((reaction, i) => (
+            <Emoji
+              key={`reaction-${i}`}
+              {...reaction}
+              isExploding={explodingEmoji === reaction.emoji}
+              onClick={() => {
+                setExplodingEmoji(reaction.emoji);
+                setEmojis((emojis) =>
+                  emojis.map((emoji) =>
+                    emoji.emoji === reaction.emoji
+                      ? { ...emoji, count: emoji.count + 1 }
+                      : emoji
+                  )
+                );
+              }}
+            />
+          ))}
+
+          <div className="relative group ml-auto">
+            <div
+              className="absolute gap-2 py-1.5 -z-50 opacity-0 right-0 origin-top-right transition-all duration-500 
+              rounded-md shadow group-hover:opacity-100 group-hover:z-50 bg-white/60 backdrop-blur-md 
+              group-hover:-translate-y-[calc(100%+0.25rem)] flex items-center px-2"
+            >
+              {["👍", "🔥", "🤡", "💪", "👏", "🍆"].map((emoji) => (
+                <button
+                  className="flex items-center rounded-lg transition-all"
+                  onClick={() => {
+                    setExplodingEmoji(emoji);
+                    setEmojis((reactions) => {
+                      if (
+                        !reactions.find((reaction) => reaction.emoji === emoji)
+                      ) {
+                        return [...reactions, { emoji, count: 1 }];
+                      }
+                      return reactions.map((reaction) =>
+                        reaction.emoji === emoji
+                          ? { ...reaction, count: reaction.count + 1 }
+                          : reaction
+                      );
+                    });
+                  }}
+                >
+                  <span className="text-base px-2 py-1 rounded-md hover:bg-black/5">
+                    {emoji}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <button className="relative flex items-center gap-1 py-0.5 px-2 rounded-lg bg-black/5 hover:bg-black/10 transition-all">
+              <img src="/add-reaction.svg" className="w-5 h-5 opacity-60" />
+            </button>
+          </div>
+        </div>
+        <div
+          data-show={!!explodingEmoji && shouldSuperAnimate}
+          className="fixed -z-60 data-[show=true]:z-60 data-[show=true]:opacity-100 transition-opacity opacity-0 inset-0 flex items-center justify-center bg-black/40 backdrop-blur transition-all"
+        >
+          {explodingEmoji && shouldSuperAnimate && (
+            <ConfettiExplosion
+              zIndex={90}
+              onComplete={() => setExplodingEmoji(undefined)}
+            />
+          )}
+          <div
+            data-show={!!explodingEmoji && shouldSuperAnimate}
+            className="absolute z-200 transition-all data-[show=true]:animate-gold-plating"
+          >
+            <div className="relative flex items-center justify-center">
+              <span className="absolute rounded-full w-40 h-40 bg-gradient-to-r from-sky to-indigo blur-2xl"></span>
+              <span className="relative text-9xl">{explodingEmoji}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+);

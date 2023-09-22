@@ -1,5 +1,8 @@
 import AdaptiveLink from "@/app/(components)/adaptive-link";
+import { feeds } from "@/lib/data/feeds";
 import { page } from "@d-exclaimation/next";
+import PreviewPost from "./preview-post";
+import Tabs from "./tabs";
 
 const profile = {
   name: "Vincent",
@@ -319,58 +322,37 @@ export default page(() => {
       </div>
 
       {/* Teams */}
-      <div className="flex flex-col items-center min-w-full md:min-w-[unset] w-max h-max">
-        <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2 p-6 bg-white rounded-md md:shadow">
-          <div className="flex items-center gap-1 w-[100%] mb-3">
-            <img
-              className="w-6 px-1 aspect-square md:w-7"
-              src="/bike.svg"
-              alt="threads"
-            />
-            <span className="font-semibold text-base md:text-lg">
-              Your teams
-            </span>
-          </div>
-          {profile.teams.managed.map((team, i) => (
-            <div
-              key={`managed-${i}`}
-              className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
-            >
-              <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
-                <img
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110"
-                  src={`https://api.dicebear.com/6.x/shapes/svg?seed=${team}`}
+      <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2  bg-white rounded-md md:shadow">
+        <Tabs />
+        <span className="mx-4 mb-2 w-[calc(100%-2rem)] h-[1px] bg-black/10 translate-y-[0.5px]" />
+
+        <div className="w-full flex flex-col px-4 py-3 z-10 max-h-[112dvh] md:h-[112dvh] z-10 overflow-auto">
+          {feeds.length > 0 ? (
+            <div className="w-[calc(100%-3.5rem)] mx-7 px-1 pb-10 border-l border-black/15 flex flex-col items-start justify-start">
+              {feeds.map((post, i) => (
+                <PreviewPost
+                  key={`post-${i}`}
+                  i={i}
+                  {...post}
+                  shouldSuperAnimate={false}
                 />
-              </div>
-              <span className="max-w-[60%] truncate">{team}</span>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="w-full md:w-xl flex flex-col items-start justify-center md:my-2 p-6 bg-white rounded-md md:shadow">
-          <div className="flex items-center gap-1 w-[100%] mb-3">
-            <img
-              className="w-6 px-1 aspect-square md:w-7"
-              src="/ping-pong.svg"
-              alt="threads"
-            />
-            <span className="font-semibold text-base md:text-lg">
-              Joined teams
-            </span>
-          </div>
-          {profile.teams.managed.map((team, i) => (
-            <div
-              key={`joined-${i}`}
-              className="group w-full flex items-center py-2 px-3 rounded border border-black/5 gap-3 hover:bg-slate-100 active:bg-slate-100"
-            >
-              <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden">
-                <img
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110"
-                  src={`https://api.dicebear.com/6.x/shapes/svg?seed=${team}`}
-                />
-              </div>
-              <span className="max-w-[60%] truncate">{team}</span>
+          ) : (
+            <div className="h-full flex flex-col gap-1 items-center justify-center">
+              <img
+                className="max-w-[10rem] aspect-auto opacity-60 py-4"
+                src="/empty-state.png"
+              />
+              <span className="text-black/50 text-lg font-medium">
+                Enjoying the vast emptiness of space?
+              </span>
+
+              <a className="text-black/50 text-sm underline md:mb-[40%]">
+                &larr; Not really? Start following!
+              </a>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
