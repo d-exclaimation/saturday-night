@@ -19,7 +19,7 @@ export default rc<{
         </span>
       </div>
 
-      <p className="max-w-full text-xs pl-2 md:text-sm">{content}</p>
+      <p className="max-w-full text-xs pl-2 md:text-sm break-all">{content}</p>
     </div>
   );
 });

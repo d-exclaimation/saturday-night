@@ -270,6 +270,9 @@ export default page(() => {
                           <span className="font-bold text-lg md:text-xl">
                             {stat}
                           </span>
+                          <span className="text-xs font-medium text-black/60">
+                            86% of goal
+                          </span>
                         </div>
                       </div>
                     );
