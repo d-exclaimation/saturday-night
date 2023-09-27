@@ -3,7 +3,7 @@ import AdaptiveLink from "../(components)/adaptive-link";
 
 const profile = {
   name: "Saturday",
-  image: "/members/U04T77KA6MT.webp",
+  image: "/saturday.png",
   bio: "The official team for Saturday, a software built for modern teams creating new standard for personalised teams, exhibitions, and activities.",
   about: [
     {
@@ -28,7 +28,7 @@ export default page(() => {
             Back
           </AdaptiveLink>
           <img
-            className="relative w-16 h-16 md:h-20 md:w-20 aspect-square rounded-full object-cover"
+            className="relative w-16 h-16 md:h-20 md:w-20 aspect-square rounded-full object-cover invert mb-0.5"
             src={profile.image}
           />
 
